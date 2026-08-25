@@ -152,13 +152,15 @@
     }
 
     .mobile-avatar-wrap {
-      width: 54px;
+      position: relative;
+      width: 66px;
       aspect-ratio: 3 / 4;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 2px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-sec));
+      background: linear-gradient(135deg, var(--accent), rgba(59, 130, 246, 0.4), transparent);
+      box-shadow: 0 0 20px rgba(0, 210, 255, 0.22);
       flex-shrink: 0;
-      box-shadow: 0 0 15px rgba(0, 210, 255, 0.25);
+      transition: var(--transition);
     }
 
     .mobile-avatar-img {
@@ -166,8 +168,9 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      border-radius: 10px;
+      border-radius: 12px;
       display: block;
+      background: #091122;
     }
 
     .status-badge {
@@ -1438,18 +1441,16 @@
 
       <!-- Mobile Header (Visible only on smaller screens) -->
       <header class="mobile-header">
-        <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="display: flex; align-items: center; gap: 16px;">
           <div class="mobile-avatar-wrap">
             <img src="profile.webp" alt="صالح حسين جحا" class="mobile-avatar-img">
+            <div class="status-badge-corner" style="bottom: -5px; right: -5px; padding: 2px 7px; font-size: 0.65rem;" title="متاح للعمل والمشاريع">
+              <span class="status-dot"></span>
+              <span>متاح</span>
+            </div>
           </div>
           <div style="flex: 1;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <h1 class="hero-name" style="font-size: 1.45rem;">صالح حسين جحا</h1>
-              <div class="status-badge" style="font-size: 0.7rem; padding: 2px 8px;">
-                <span class="status-dot"></span>
-                <span>متاح</span>
-              </div>
-            </div>
+            <h1 class="hero-name" style="font-size: 1.4rem;">صالح حسين جحا</h1>
             <div class="hero-title-ar" style="font-size: 0.88rem;">فني كهرباء وأنظمة طاقة</div>
             <div class="hero-title-en" style="font-size: 0.72rem;">Electrical & Power Systems Specialist</div>
           </div>
