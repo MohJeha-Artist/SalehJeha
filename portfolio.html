@@ -315,41 +315,75 @@
     }
 
     /* -------------------------------------------------------------
-       CLEAN VIDEO GRID (NO CAPTIONS)
+       CLEAN VIDEO GRID (CLICK TO OPEN LIGHTBOX)
        ------------------------------------------------------------- */
     .video-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
     }
 
-    .video-card {
+    .video-item {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
       background: #000;
       border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      overflow: hidden;
       transition: var(--transition);
-      position: relative;
     }
 
-    .video-card:hover {
-      border-color: var(--accent);
+    .video-item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(0, 210, 255, 0.25);
     }
 
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-    }
-
-    .video-element {
+    .video-thumb {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      pointer-events: none;
+    }
+
+    .video-hover-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 7, 14, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .video-item:hover .video-hover-overlay {
+      background: rgba(0, 210, 255, 0.12);
+    }
+
+    .video-play-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(7, 9, 14, 0.88);
+      border: 1.5px solid var(--border-accent);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      padding-left: 3px;
+      box-shadow: 0 0 20px var(--accent-dim);
+      transform: scale(0.9);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .video-item:hover .video-play-badge {
+      transform: scale(1.1);
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 25px var(--accent-glow);
     }
 
     /* -------------------------------------------------------------
@@ -395,6 +429,18 @@
       -webkit-user-drag: none;
       cursor: grab;
       transition: transform 0.22s ease-out, opacity 0.22s ease-out;
+      display: block;
+    }
+
+    .lightbox-video {
+      max-width: 92vw;
+      max-height: 84vh;
+      border-radius: 12px;
+      border: 1px solid var(--border-accent);
+      box-shadow: 0 0 50px rgba(0, 210, 255, 0.28);
+      background: #000;
+      display: none;
+      outline: none;
     }
 
     .lightbox-img:active {
@@ -624,19 +670,20 @@
   </main>
 
   <!-- =========================================================
-       LIGHTBOX MODAL (SWIPABLE & FULLSCREEN)
+       LIGHTBOX MODAL (SWIPABLE & FULLSCREEN FOR PHOTOS & VIDEOS)
        ========================================================= -->
   <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox(event)" aria-modal="true" role="dialog">
     <button class="lightbox-btn lightbox-close" onclick="closeLightboxDirect()" title="إغلاق المعاينة (Esc)" aria-label="إغلاق">✕</button>
-    <button class="lightbox-btn lightbox-next" onclick="navigateLightbox(1)" title="الصورة التالية" aria-label="التالي">❮</button>
-    <button class="lightbox-btn lightbox-prev" onclick="navigateLightbox(-1)" title="الصورة السابقة" aria-label="السابق">❯</button>
+    <button class="lightbox-btn lightbox-next" onclick="navigateLightbox(1)" title="التالي" aria-label="التالي">❮</button>
+    <button class="lightbox-btn lightbox-prev" onclick="navigateLightbox(-1)" title="السابق" aria-label="السابق">❯</button>
     
     <div class="lightbox-content-wrapper" id="lightbox-wrapper" onclick="event.stopPropagation()">
       <img id="lightbox-image" src="" alt="صورة العمل الميداني" class="lightbox-img">
+      <video id="lightbox-video" class="lightbox-video" controls muted playsinline></video>
       <div id="lightbox-counter" class="lightbox-counter"></div>
     </div>
 
-    <div class="lightbox-swipe-hint">اسحب للتنقل بين الصور ↔</div>
+    <div class="lightbox-swipe-hint">اسحب للتنقل ↔</div>
   </div>
 
   <!-- =========================================================
@@ -654,14 +701,14 @@
       // إجمالي عدد الفيديوهات في مجلد portfolio/Videos
       videosCount: 17,
       
-      // مسار الصور (يمكنك تغييره أو إضافة مصفوفة مسارات مخصصة)
+      // مسار الصور
       getImageSrc: (i) => `portfolio/Images/image (${i}).jpg`,
       
       // مسار الفيديوهات
       getVideoSrc: (i) => `portfolio/Videos/video (${i}).mp4`
     };
 
-    // 1. Populate Clean Photos Grid (No Captions)
+    // 1. Populate Clean Photos Grid (Click to open Photo in Lightbox)
     const photoGrid = document.getElementById('photo-grid');
     if (photoGrid) {
       let photoHtml = '';
@@ -669,7 +716,7 @@
         const idx = i - 1;
         const src = GALLERY_CONFIG.getImageSrc(i);
         photoHtml += `
-          <div class="gallery-item" onclick="openLightbox(${idx})">
+          <div class="gallery-item" onclick="openLightbox(${idx}, 'photo')">
             <img src="${src}" alt="صورة ${i}" class="gallery-img" loading="lazy">
             <div class="gallery-hover-overlay">
               <div class="gallery-zoom-badge">🔍</div>
@@ -680,19 +727,20 @@
       photoGrid.innerHTML = photoHtml;
     }
 
-    // 2. Populate Clean Videos Grid (No Captions)
+    // 2. Populate Clean Videos Grid (Click to open Video in Lightbox)
     const videoGrid = document.getElementById('video-grid');
     if (videoGrid) {
       let videoHtml = '';
       for (let i = 1; i <= GALLERY_CONFIG.videosCount; i++) {
+        const idx = i - 1;
         const src = GALLERY_CONFIG.getVideoSrc(i);
         videoHtml += `
-          <div class="video-card">
-            <div class="video-wrapper">
-              <video class="video-element" controls preload="metadata" playsinline>
-                <source src="${src}" type="video/mp4">
-                متصفحك لا يدعم تشغيل الفيديو.
-              </video>
+          <div class="video-item" onclick="openLightbox(${idx}, 'video')">
+            <video class="video-thumb" preload="metadata" muted playsinline>
+              <source src="${src}#t=0.5" type="video/mp4">
+            </video>
+            <div class="video-hover-overlay">
+              <div class="video-play-badge">▶</div>
             </div>
           </div>
         `;
@@ -701,16 +749,19 @@
     }
 
     /* ===========================================================
-       🖼️ SWIPABLE LIGHTBOX MODAL LOGIC
+       🖼️ SWIPABLE LIGHTBOX MODAL LOGIC (PHOTOS & VIDEOS)
        =========================================================== */
     let currentLightboxIdx = 0;
+    let currentLightboxType = 'photo'; // 'photo' | 'video'
     const lightboxModal = document.getElementById('lightbox-modal');
     const lightboxImg = document.getElementById('lightbox-image');
+    const lightboxVideo = document.getElementById('lightbox-video');
     const lightboxCounter = document.getElementById('lightbox-counter');
     const lightboxWrapper = document.getElementById('lightbox-wrapper');
 
-    function openLightbox(idx) {
+    function openLightbox(idx, type = 'photo') {
       currentLightboxIdx = idx;
+      currentLightboxType = type;
       updateLightboxDisplay();
       lightboxModal.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -719,7 +770,11 @@
     function closeLightboxDirect() {
       lightboxModal.classList.remove('active');
       document.body.style.overflow = '';
-      resetImgTransform();
+      if (lightboxVideo) {
+        lightboxVideo.pause();
+        lightboxVideo.src = '';
+      }
+      resetTransform();
     }
 
     function closeLightbox(e) {
@@ -729,29 +784,49 @@
     }
 
     function navigateLightbox(step) {
-      currentLightboxIdx = (currentLightboxIdx + step + GALLERY_CONFIG.imagesCount) % GALLERY_CONFIG.imagesCount;
+      const total = currentLightboxType === 'video' ? GALLERY_CONFIG.videosCount : GALLERY_CONFIG.imagesCount;
+      currentLightboxIdx = (currentLightboxIdx + step + total) % total;
       
-      // Smooth slide transition
-      lightboxImg.style.opacity = '0';
-      lightboxImg.style.transform = step > 0 ? 'translateX(-30px) scale(0.96)' : 'translateX(30px) scale(0.96)';
+      const activeEl = currentLightboxType === 'video' ? lightboxVideo : lightboxImg;
+      activeEl.style.opacity = '0';
+      activeEl.style.transform = step > 0 ? 'translateX(-30px) scale(0.96)' : 'translateX(30px) scale(0.96)';
       
       setTimeout(() => {
         updateLightboxDisplay();
-        lightboxImg.style.opacity = '1';
-        lightboxImg.style.transform = 'translateX(0) scale(1)';
+        activeEl.style.opacity = '1';
+        activeEl.style.transform = 'translateX(0) scale(1)';
       }, 120);
     }
 
     function updateLightboxDisplay() {
-      const imgNum = currentLightboxIdx + 1;
-      lightboxImg.src = GALLERY_CONFIG.getImageSrc(imgNum);
-      lightboxCounter.textContent = `${imgNum} / ${GALLERY_CONFIG.imagesCount}`;
+      const num = currentLightboxIdx + 1;
+      if (currentLightboxType === 'video') {
+        lightboxImg.style.display = 'none';
+        lightboxVideo.style.display = 'block';
+        lightboxVideo.src = GALLERY_CONFIG.getVideoSrc(num);
+        lightboxVideo.muted = true;
+        lightboxVideo.play().catch(() => {});
+        lightboxCounter.textContent = `${num} / ${GALLERY_CONFIG.videosCount}`;
+      } else {
+        if (lightboxVideo) {
+          lightboxVideo.pause();
+          lightboxVideo.src = '';
+          lightboxVideo.style.display = 'none';
+        }
+        lightboxImg.style.display = 'block';
+        lightboxImg.src = GALLERY_CONFIG.getImageSrc(num);
+        lightboxCounter.textContent = `${num} / ${GALLERY_CONFIG.imagesCount}`;
+      }
     }
 
-    function resetImgTransform() {
+    function resetTransform() {
       if (lightboxImg) {
         lightboxImg.style.transform = '';
         lightboxImg.style.opacity = '1';
+      }
+      if (lightboxVideo) {
+        lightboxVideo.style.transform = '';
+        lightboxVideo.style.opacity = '1';
       }
     }
 
@@ -770,7 +845,11 @@
     let startY = 0;
     let currentX = 0;
     let isDragging = false;
-    const swipeThreshold = 50; // pixels to trigger swipe
+    const swipeThreshold = 50;
+
+    function getActiveEl() {
+      return currentLightboxType === 'video' ? lightboxVideo : lightboxImg;
+    }
 
     // Touch events for Mobile / Tablets
     lightboxModal.addEventListener('touchstart', (e) => {
@@ -788,8 +867,9 @@
       const diffY = e.touches[0].clientY - startY;
 
       if (Math.abs(diffX) > Math.abs(diffY)) {
-        lightboxImg.style.transform = `translateX(${diffX * 0.7}px) scale(0.98)`;
-        lightboxImg.style.opacity = `${Math.max(0.4, 1 - Math.abs(diffX) / 400)}`;
+        const activeEl = getActiveEl();
+        activeEl.style.transform = `translateX(${diffX * 0.7}px) scale(0.98)`;
+        activeEl.style.opacity = `${Math.max(0.4, 1 - Math.abs(diffX) / 400)}`;
       }
     }, { passive: true });
 
@@ -805,27 +885,32 @@
           navigateLightbox(-1);
         }
       } else {
-        resetImgTransform();
+        resetTransform();
       }
     });
 
     // Mouse drag events for Desktop
-    lightboxImg.addEventListener('mousedown', (e) => {
+    lightboxWrapper.addEventListener('mousedown', (e) => {
+      // Don't drag if interacting with video native controls
+      if (e.target.tagName.toLowerCase() === 'video' && e.offsetY > e.target.clientHeight - 50) return;
       startX = e.clientX;
       isDragging = true;
-      lightboxImg.style.transition = 'none';
+      const activeEl = getActiveEl();
+      activeEl.style.transition = 'none';
     });
 
     window.addEventListener('mousemove', (e) => {
       if (!isDragging || !lightboxModal.classList.contains('active')) return;
       const diffX = e.clientX - startX;
-      lightboxImg.style.transform = `translateX(${diffX * 0.6}px) scale(0.98)`;
+      const activeEl = getActiveEl();
+      activeEl.style.transform = `translateX(${diffX * 0.6}px) scale(0.98)`;
     });
 
     window.addEventListener('mouseup', (e) => {
       if (!isDragging) return;
       isDragging = false;
-      lightboxImg.style.transition = 'transform 0.22s ease-out, opacity 0.22s ease-out';
+      const activeEl = getActiveEl();
+      activeEl.style.transition = 'transform 0.22s ease-out, opacity 0.22s ease-out';
       const diffX = e.clientX - startX;
 
       if (Math.abs(diffX) > swipeThreshold) {
@@ -835,7 +920,7 @@
           navigateLightbox(-1);
         }
       } else {
-        resetImgTransform();
+        resetTransform();
       }
     });
   </script>
