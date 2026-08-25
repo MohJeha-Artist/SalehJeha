@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="معرض الأعمال والتوثيق الميداني لصالح حسين جحا - مشاريع الطاقة الشمسية، لوحات التحكم، لف المحركات والمولدات">
+  <meta name="author" content="صالح حسين جحا">
+
+  <title>معرض الأعمال والتوثيق الميداني | صالح حسين جحا - Field Portfolio</title>
+
+  <!-- Google Fonts: Cairo & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------------------
+       DESIGN SYSTEM & CSS VARIABLES
+       ------------------------------------------------------------- */
+    :root {
+      --bg-main: #07090e;
+      --bg-surface: #0c1017;
+      --bg-card: rgba(12, 16, 23, 0.85);
+      
+      --accent: #00d2ff;
+      --accent-dim: rgba(0, 210, 255, 0.15);
+      --accent-glow: rgba(0, 210, 255, 0.25);
+      --accent-sec: #3b82f6;
+      
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(0, 210, 255, 0.35);
+      
+      --text-1: #ffffff;
+      --text-2: rgba(255, 255, 255, 0.85);
+      --text-3: rgba(255, 255, 255, 0.55);
+      
+      --font-ar: 'Cairo', system-ui, sans-serif;
+      --font-en: 'Outfit', system-ui, sans-serif;
+      
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-main);
+      color: var(--text-2);
+      font-family: var(--font-ar);
+    }
+
+    body {
+      min-height: 100vh;
+      line-height: 1.7;
+      background-color: var(--bg-main);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 210, 255, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.05) 0px, transparent 50%);
+      overflow-x: hidden;
+      padding-bottom: 80px;
+      user-select: none;
+    }
+
+    /* -------------------------------------------------------------
+       TOP NAVIGATION BAR
+       ------------------------------------------------------------- */
+    .portfolio-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 9, 14, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+      flex-shrink: 1;
+    }
+
+    .nav-avatar-wrap {
+      width: 40px;
+      aspect-ratio: 3 / 4;
+      border-radius: 8px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-sec));
+      flex-shrink: 0;
+      text-decoration: none;
+      display: block;
+    }
+
+    .nav-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 6.5px;
+      display: block;
+    }
+
+    .nav-identity {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .nav-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .nav-role {
+      font-size: 0.76rem;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .btn-nav-back:hover {
+      background: var(--accent-dim);
+      border-color: var(--border-accent);
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    .btn-nav-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.2), rgba(59, 130, 246, 0.25));
+      border: 1px solid var(--border-accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .btn-nav-whatsapp:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* -------------------------------------------------------------
+       MAIN CONTAINER
+       ------------------------------------------------------------- */
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 36px 24px;
+    }
+
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .page-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--text-3);
+      max-width: 680px;
+      margin: 10px auto 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Section Sub-titles */
+    .section-headline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* -------------------------------------------------------------
+       CLEAN PHOTO GRID (NO CAPTIONS)
+       ------------------------------------------------------------- */
+    .photo-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #090e18;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(0, 210, 255, 0.25);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.06);
+    }
+
+    .gallery-hover-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 210, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .gallery-item:hover .gallery-hover-overlay {
+      opacity: 1;
+    }
+
+    .gallery-zoom-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(7, 9, 14, 0.85);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 0 18px var(--accent-dim);
+      transform: scale(0.8);
+      transition: transform 0.25s ease;
+    }
+
+    .gallery-item:hover .gallery-zoom-badge {
+      transform: scale(1);
+    }
+
+    /* -------------------------------------------------------------
+       CLEAN VIDEO GRID (NO CAPTIONS)
+       ------------------------------------------------------------- */
+    .video-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 18px;
+    }
+
+    .video-card {
+      background: #000;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .video-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-element {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* -------------------------------------------------------------
+       SWIPABLE FULLSCREEN LIGHTBOX MODAL
+       ------------------------------------------------------------- */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 14, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content-wrapper {
+      position: relative;
+      max-width: 92vw;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 84vh;
+      border-radius: 12px;
+      border: 1px solid var(--border-accent);
+      box-shadow: 0 0 50px rgba(0, 210, 255, 0.28);
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+      cursor: grab;
+      transition: transform 0.22s ease-out, opacity 0.22s ease-out;
+    }
+
+    .lightbox-img:active {
+      cursor: grabbing;
+    }
+
+    .lightbox-counter {
+      margin-top: 14px;
+      font-family: var(--font-en);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--border-subtle);
+      letter-spacing: 1px;
+    }
+
+    .lightbox-swipe-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.4);
+      pointer-events: none;
+      display: none;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+      font-size: 1.15rem;
+    }
+
+    .lightbox-btn:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .lightbox-close {
+      top: 24px;
+      left: 24px;
+    }
+
+    .lightbox-next {
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-prev {
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE & MOBILE
+       ------------------------------------------------------------- */
+    @media (max-width: 768px) {
+      .portfolio-navbar {
+        padding: 10px 14px;
+        gap: 8px;
+      }
+
+      .nav-brand-group {
+        gap: 8px;
+      }
+
+      .nav-avatar-wrap {
+        width: 34px;
+        border-radius: 6px;
+      }
+
+      .nav-name {
+        font-size: 0.92rem;
+      }
+
+      .nav-role {
+        font-size: 0.68rem;
+      }
+
+      .nav-actions {
+        gap: 6px;
+      }
+
+      .btn-nav-back,
+      .btn-nav-whatsapp {
+        padding: 6px 10px;
+        font-size: 0.78rem;
+        gap: 4px;
+        border-radius: 7px;
+      }
+
+      .page-title {
+        font-size: 1.6rem;
+      }
+
+      .photo-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .video-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .lightbox-btn.lightbox-next,
+      .lightbox-btn.lightbox-prev {
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .lightbox-swipe-hint {
+        display: block;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .portfolio-navbar {
+        padding: 8px 10px;
+        gap: 6px;
+      }
+
+      .nav-name {
+        font-size: 0.86rem;
+      }
+
+      .nav-role {
+        display: none;
+      }
+
+      .btn-nav-back,
+      .btn-nav-whatsapp {
+        padding: 5px 8px;
+        font-size: 0.74rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       TOP NAVIGATION BAR
+       ========================================================= -->
+  <nav class="portfolio-navbar" aria-label="Portfolio Navigation">
+    <a href="index.html" class="nav-brand-group" title="العودة للسيرة الذاتية">
+      <div class="nav-avatar-wrap">
+        <img src="profile.webp" alt="صالح حسين جحا" class="nav-avatar-img">
+      </div>
+      <div class="nav-identity">
+        <div class="nav-name">صالح حسين جحا</div>
+        <div class="nav-role">فني كهرباء وأنظمة طاقة</div>
+      </div>
+    </a>
+
+    <div class="nav-actions">
+      <a href="index.html" class="btn-nav-back" title="العودة للسيرة الذاتية">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span class="btn-text">السيرة الذاتية</span>
+      </a>
+      <a href="https://wa.me/96176056312" target="_blank" class="btn-nav-whatsapp" title="تواصل عبر واتساب">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+        <span class="btn-text">واتساب</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- =========================================================
+       MAIN CONTENT CONTAINER
+       ========================================================= -->
+  <main class="container">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="page-title">معرض الأعمال والتوثيق الميداني</h1>
+      <p class="page-subtitle">
+        توثيق مرئي وميداني لمشاريع الطاقة الشمسية، لف وصيانة المحركات والمولدات، وتجميع لوحات التحكم ودارات ATS.
+      </p>
+    </header>
+
+    <!-- Photos Section -->
+    <section id="photos-section" class="gallery-section">
+      <div class="section-headline">
+        <h2 class="section-title">
+          <span>📷</span>
+          <span>معرض الصور الميدانية</span>
+        </h2>
+      </div>
+
+      <div class="photo-gallery-grid" id="photo-grid"></div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos-section" class="gallery-section" style="margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border-subtle);">
+      <div class="section-headline">
+        <h2 class="section-title">
+          <span>🎥</span>
+          <span>فيديوهات التشغيل والاختبار الميداني</span>
+        </h2>
+      </div>
+
+      <div class="video-gallery-grid" id="video-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       LIGHTBOX MODAL (SWIPABLE & FULLSCREEN)
+       ========================================================= -->
+  <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox(event)" aria-modal="true" role="dialog">
+    <button class="lightbox-btn lightbox-close" onclick="closeLightboxDirect()" title="إغلاق المعاينة (Esc)" aria-label="إغلاق">✕</button>
+    <button class="lightbox-btn lightbox-next" onclick="navigateLightbox(1)" title="الصورة التالية" aria-label="التالي">❮</button>
+    <button class="lightbox-btn lightbox-prev" onclick="navigateLightbox(-1)" title="الصورة السابقة" aria-label="السابق">❯</button>
+    
+    <div class="lightbox-content-wrapper" id="lightbox-wrapper" onclick="event.stopPropagation()">
+      <img id="lightbox-image" src="" alt="صورة العمل الميداني" class="lightbox-img">
+      <div id="lightbox-counter" class="lightbox-counter"></div>
+    </div>
+
+    <div class="lightbox-swipe-hint">اسحب للتنقل بين الصور ↔</div>
+  </div>
+
+  <!-- =========================================================
+       DYNAMIC CONFIGURATION & INTERACTION SCRIPT
+       ========================================================= -->
+  <script>
+    /* ===========================================================
+       🛠️ EASY GALLERY CONFIGURATION
+       لتغيير عدد الصور أو الفيديوهات، عدّل الأرقام هنا فقط بكل سهولة:
+       =========================================================== */
+    const GALLERY_CONFIG = {
+      // إجمالي عدد الصور في مجلد portfolio/Images
+      imagesCount: 49,
+      
+      // إجمالي عدد الفيديوهات في مجلد portfolio/Videos
+      videosCount: 17,
+      
+      // مسار الصور (يمكنك تغييره أو إضافة مصفوفة مسارات مخصصة)
+      getImageSrc: (i) => `portfolio/Images/image (${i}).jpg`,
+      
+      // مسار الفيديوهات
+      getVideoSrc: (i) => `portfolio/Videos/video (${i}).mp4`
+    };
+
+    // 1. Populate Clean Photos Grid (No Captions)
+    const photoGrid = document.getElementById('photo-grid');
+    if (photoGrid) {
+      let photoHtml = '';
+      for (let i = 1; i <= GALLERY_CONFIG.imagesCount; i++) {
+        const idx = i - 1;
+        const src = GALLERY_CONFIG.getImageSrc(i);
+        photoHtml += `
+          <div class="gallery-item" onclick="openLightbox(${idx})">
+            <img src="${src}" alt="صورة ${i}" class="gallery-img" loading="lazy">
+            <div class="gallery-hover-overlay">
+              <div class="gallery-zoom-badge">🔍</div>
+            </div>
+          </div>
+        `;
+      }
+      photoGrid.innerHTML = photoHtml;
+    }
+
+    // 2. Populate Clean Videos Grid (No Captions)
+    const videoGrid = document.getElementById('video-grid');
+    if (videoGrid) {
+      let videoHtml = '';
+      for (let i = 1; i <= GALLERY_CONFIG.videosCount; i++) {
+        const src = GALLERY_CONFIG.getVideoSrc(i);
+        videoHtml += `
+          <div class="video-card">
+            <div class="video-wrapper">
+              <video class="video-element" controls preload="metadata" playsinline>
+                <source src="${src}" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
+              </video>
+            </div>
+          </div>
+        `;
+      }
+      videoGrid.innerHTML = videoHtml;
+    }
+
+    /* ===========================================================
+       🖼️ SWIPABLE LIGHTBOX MODAL LOGIC
+       =========================================================== */
+    let currentLightboxIdx = 0;
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxWrapper = document.getElementById('lightbox-wrapper');
+
+    function openLightbox(idx) {
+      currentLightboxIdx = idx;
+      updateLightboxDisplay();
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightboxDirect() {
+      lightboxModal.classList.remove('active');
+      document.body.style.overflow = '';
+      resetImgTransform();
+    }
+
+    function closeLightbox(e) {
+      if (e.target === lightboxModal) {
+        closeLightboxDirect();
+      }
+    }
+
+    function navigateLightbox(step) {
+      currentLightboxIdx = (currentLightboxIdx + step + GALLERY_CONFIG.imagesCount) % GALLERY_CONFIG.imagesCount;
+      
+      // Smooth slide transition
+      lightboxImg.style.opacity = '0';
+      lightboxImg.style.transform = step > 0 ? 'translateX(-30px) scale(0.96)' : 'translateX(30px) scale(0.96)';
+      
+      setTimeout(() => {
+        updateLightboxDisplay();
+        lightboxImg.style.opacity = '1';
+        lightboxImg.style.transform = 'translateX(0) scale(1)';
+      }, 120);
+    }
+
+    function updateLightboxDisplay() {
+      const imgNum = currentLightboxIdx + 1;
+      lightboxImg.src = GALLERY_CONFIG.getImageSrc(imgNum);
+      lightboxCounter.textContent = `${imgNum} / ${GALLERY_CONFIG.imagesCount}`;
+    }
+
+    function resetImgTransform() {
+      if (lightboxImg) {
+        lightboxImg.style.transform = '';
+        lightboxImg.style.opacity = '1';
+      }
+    }
+
+    // Keyboard Navigation (Esc, Left, Right)
+    window.addEventListener('keydown', (e) => {
+      if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightboxDirect();
+      if (e.key === 'ArrowLeft') navigateLightbox(1);
+      if (e.key === 'ArrowRight') navigateLightbox(-1);
+    });
+
+    /* ===========================================================
+       📱 TOUCH & MOUSE SWIPE GESTURES
+       =========================================================== */
+    let startX = 0;
+    let startY = 0;
+    let currentX = 0;
+    let isDragging = false;
+    const swipeThreshold = 50; // pixels to trigger swipe
+
+    // Touch events for Mobile / Tablets
+    lightboxModal.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+      }
+    }, { passive: true });
+
+    lightboxModal.addEventListener('touchmove', (e) => {
+      if (!isDragging || e.touches.length !== 1) return;
+      currentX = e.touches[0].clientX;
+      const diffX = currentX - startX;
+      const diffY = e.touches[0].clientY - startY;
+
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        lightboxImg.style.transform = `translateX(${diffX * 0.7}px) scale(0.98)`;
+        lightboxImg.style.opacity = `${Math.max(0.4, 1 - Math.abs(diffX) / 400)}`;
+      }
+    }, { passive: true });
+
+    lightboxModal.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diffX = (e.changedTouches[0]?.clientX || currentX) - startX;
+
+      if (Math.abs(diffX) > swipeThreshold) {
+        if (diffX < 0) {
+          navigateLightbox(1);
+        } else {
+          navigateLightbox(-1);
+        }
+      } else {
+        resetImgTransform();
+      }
+    });
+
+    // Mouse drag events for Desktop
+    lightboxImg.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+      lightboxImg.style.transition = 'none';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging || !lightboxModal.classList.contains('active')) return;
+      const diffX = e.clientX - startX;
+      lightboxImg.style.transform = `translateX(${diffX * 0.6}px) scale(0.98)`;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      lightboxImg.style.transition = 'transform 0.22s ease-out, opacity 0.22s ease-out';
+      const diffX = e.clientX - startX;
+
+      if (Math.abs(diffX) > swipeThreshold) {
+        if (diffX < 0) {
+          navigateLightbox(1);
+        } else {
+          navigateLightbox(-1);
+        }
+      } else {
+        resetImgTransform();
+      }
+    });
+  </script>
+
+</body>
+</html>

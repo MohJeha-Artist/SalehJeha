@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="صالح حسين جحا - فني كهرباء وأنظمة طاقة | خبرة ميدانية تتجاوز 20 عاماً في التحكم الصناعي، لف المحركات، ومشاريع الطاقة الشمسية">
+  <meta name="author" content="صالح حسين جحا">
+
+  <title>صالح حسين جحا | فني كهرباء وأنظمة طاقة - Electrical & Power Systems Specialist</title>
+
+  <!-- Google Fonts: Cairo & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------------------
+       DESIGN SYSTEM & CSS VARIABLES
+       ------------------------------------------------------------- */
+    :root {
+      --bg-main: #07090e;
+      --bg-surface: #0c1017;
+      --bg-sidebar: rgba(10, 14, 23, 0.75);
+      
+      --accent: #00d2ff;
+      --accent-dim: rgba(0, 210, 255, 0.15);
+      --accent-glow: rgba(0, 210, 255, 0.25);
+      --accent-sec: #3b82f6;
+      --accent-amber: #f59e0b;
+      
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-accent: rgba(0, 210, 255, 0.3);
+      
+      --text-1: #ffffff;
+      --text-2: rgba(255, 255, 255, 0.82);
+      --text-3: rgba(255, 255, 255, 0.55);
+      
+      --font-ar: 'Cairo', system-ui, sans-serif;
+      --font-en: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+      
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-main);
+      color: var(--text-2);
+      font-family: var(--font-ar);
+    }
+
+    body {
+      min-height: 100vh;
+      line-height: 1.7;
+      background-color: var(--bg-main);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 210, 255, 0.04) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.04) 0px, transparent 50%);
+      overflow-x: hidden;
+    }
+
+    /* -------------------------------------------------------------
+       LAYOUT ARCHITECTURE (2 Columns Desktop / Clean Stack Mobile)
+       ------------------------------------------------------------- */
+    .personal {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      position: relative;
+    }
+
+    /* ----------------------------- LEFT/SIDEBAR HERO (Minimal & Modern) */
+    .profile-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0; /* RTL placement */
+      width: 320px;
+      height: 100vh;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 1px solid var(--border-subtle);
+      background: var(--bg-sidebar);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 100;
+    }
+
+    .sidebar-top {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Minimal Avatar Profile Photo (3x4 Aspect Ratio) */
+    .sidebar-avatar-container {
+      position: relative;
+      width: 120px;
+      aspect-ratio: 3 / 4;
+      margin-bottom: 6px;
+    }
+
+    .avatar-glow-ring {
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      padding: 2.5px;
+      background: linear-gradient(135deg, var(--accent), rgba(59, 130, 246, 0.4), transparent);
+      box-shadow: 0 0 25px rgba(0, 210, 255, 0.22);
+      transition: var(--transition);
+    }
+
+    .sidebar-avatar-container:hover .avatar-glow-ring {
+      box-shadow: 0 0 35px rgba(0, 210, 255, 0.4);
+      transform: scale(1.02);
+    }
+
+    .sidebar-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      display: block;
+      background: #091122;
+    }
+
+    .status-badge-corner {
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(8, 12, 20, 0.95);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 3px 9px;
+      border-radius: 100px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .mobile-avatar-wrap {
+      width: 54px;
+      aspect-ratio: 3 / 4;
+      border-radius: 12px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-sec));
+      flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.25);
+    }
+
+    .mobile-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 4px 12px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    .sidebar-identity {
+      margin-top: 10px;
+    }
+
+    .hero-name {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title-ar {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .hero-title-en {
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Minimal Contact List */
+    .sidebar-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: var(--transition);
+      direction: rtl;
+    }
+
+    .contact-item:hover {
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+
+    .contact-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover .contact-icon {
+      background: var(--accent-dim);
+      border-color: var(--border-accent);
+    }
+
+    .contact-icon svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+    }
+
+    .ltr-text {
+      direction: ltr;
+      unicode-bidi: embed;
+      font-family: var(--font-en);
+    }
+
+    /* Sidebar Actions */
+    .sidebar-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .btn-minimal-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.15), rgba(59, 130, 246, 0.2));
+      border: 1px solid var(--border-accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-minimal-primary:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-minimal-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 10px;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-3);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-minimal-secondary:hover {
+      color: #fff;
+      border-color: var(--border-accent);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* ----------------------------- RIGHT/MAIN CONTENT STREAM (Unboxed & Clean) */
+    .main-content {
+      position: relative;
+      margin-right: 320px; /* Space for sidebar */
+      width: calc(100% - 320px);
+      padding: 50px 70px 100px 70px;
+      min-height: 100vh;
+    }
+
+    /* Mobile Header (Hidden on Desktop) */
+    .mobile-header {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 35px;
+    }
+
+    .mobile-header .hero-name {
+      font-size: 1.85rem;
+    }
+
+    .mobile-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .mobile-contacts a {
+      color: var(--text-2);
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ----------------------------- UNBOXED SECTION HEADINGS */
+    .sct-block {
+      margin-top: 55px;
+    }
+
+    .sct-block:first-of-type {
+      margin-top: 0;
+    }
+
+    .sct-title-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 22px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .sct-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+
+    .sct-subtitle {
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ----------------------------- UNBOXED SUMMARY */
+    .summary-content {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--text-2);
+      text-align: justify;
+    }
+
+    .summary-content strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* Minimal Highlight Stat Pills */
+    .stats-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .stat-pill:hover {
+      border-color: var(--border-accent);
+      background: rgba(0, 210, 255, 0.03);
+    }
+
+    .stat-pill-num {
+      font-family: var(--font-en);
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    .stat-pill-label {
+      font-size: 0.84rem;
+      color: var(--text-3);
+    }
+
+    /* ----------------------------- UNBOXED SPECIALIZATIONS (Clean 2-Col Flow) */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 36px;
+      margin-top: 10px;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .spec-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .spec-bullet {
+      color: var(--accent);
+      font-size: 1.1rem;
+      line-height: 1.4;
+      margin-top: 1px;
+    }
+
+    .spec-name {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .spec-name-en {
+      display: block;
+      font-family: var(--font-en);
+      font-size: 0.76rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+
+    .spec-text {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-2);
+    }
+
+    .spec-tags-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .spec-tag-item {
+      font-family: var(--font-en);
+      font-size: 0.74rem;
+      color: var(--text-3);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* ----------------------------- UNBOXED WORK EXPERIENCE TIMELINE */
+    .timeline-stream {
+      position: relative;
+      padding-right: 24px; /* Line space */
+      margin-top: 10px;
+    }
+
+    .timeline-stream::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: 0;
+      bottom: 12px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), rgba(0, 210, 255, 0.15) 85%, transparent);
+    }
+
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 36px;
+    }
+
+    .timeline-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-entry::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      right: -28px; /* Center on vertical line */
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg-main);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .timeline-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .entry-role {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .entry-date {
+      font-family: var(--font-en);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      direction: ltr;
+    }
+
+    .entry-company {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--accent-sec);
+      margin-bottom: 10px;
+    }
+
+    .entry-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .entry-bullet {
+      position: relative;
+      padding-right: 18px;
+      font-size: 0.93rem;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    .entry-bullet::before {
+      content: "–";
+      position: absolute;
+      right: 2px;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* ----------------------------- UNBOXED TOOLBOX (Minimal Tech Badges) */
+    .toolbox-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tool-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .tool-pill:hover {
+      background: var(--accent-dim);
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .tool-pill-icon {
+      color: var(--accent);
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .tool-pill-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-en);
+    }
+
+    .tool-pill-desc {
+      font-size: 0.8rem;
+      color: var(--text-3);
+    }
+
+    /* ----------------------------- UNBOXED EDUCATION & CERTIFICATIONS */
+    .edu-flow {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .edu-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .edu-degree {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .edu-grade {
+      font-size: 0.8rem;
+      color: #fbbf24;
+      font-weight: 600;
+    }
+
+    .edu-detail {
+      font-size: 0.88rem;
+      color: var(--text-3);
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
+    /* ----------------------------- UNBOXED SKILLS MATRIX */
+    .skills-matrix-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .skill-matrix-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 16px;
+      align-items: baseline;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .skill-matrix-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .skill-cat-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .skill-cat-body {
+      font-size: 0.92rem;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* ----------------------------- FOOTER */
+    .page-footer {
+      margin-top: 70px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-3);
+      font-size: 0.82rem;
+    }
+
+    .btn-top {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: var(--font-ar);
+      transition: var(--transition);
+    }
+
+    .btn-top:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* ----------------------------- PORTFOLIO & CREATIVE GALLERY STYLES */
+    .portfolio-subheading {
+      color: var(--text-3);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+    }
+
+    .gallery-filter-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-2);
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: var(--font-ar);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .gallery-tab-btn:hover {
+      background: rgba(0, 210, 255, 0.08);
+      border-color: var(--border-accent);
+      color: #fff;
+    }
+
+    .gallery-tab-btn.active {
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.2), rgba(59, 130, 246, 0.25));
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 15px var(--accent-dim);
+    }
+
+    .gallery-count-badge {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--accent);
+    }
+
+    /* Photos Grid */
+    .photo-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #090e18;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(0, 210, 255, 0.25);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5, 9, 18, 0.92) 0%, rgba(5, 9, 18, 0.2) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-zoom-icon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 210, 255, 0.9);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-zoom-icon {
+      transform: scale(1);
+    }
+
+    .gallery-caption {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    /* Video Showcase Grid */
+    .video-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .video-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .video-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .video-element {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-info-bar {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .video-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .video-tag {
+      font-size: 0.74rem;
+      color: var(--accent);
+      font-family: var(--font-en);
+    }
+
+    /* Load More / Expand Button */
+    .gallery-expand-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .btn-expand-gallery {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      font-family: var(--font-ar);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-expand-gallery:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 14, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 12px;
+      border: 1px solid var(--border-accent);
+      box-shadow: 0 0 40px rgba(0, 210, 255, 0.3);
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      margin-top: 14px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .lightbox-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .lightbox-close {
+      top: 25px;
+      left: 25px;
+    }
+
+    .lightbox-next {
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-prev {
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* ----------------------------- RESPONSIVE (Mobile & Tablet) */
+    @media (max-width: 1024px) {
+      .profile-sidebar {
+        display: none !important;
+      }
+
+      .mobile-header {
+        display: flex !important;
+      }
+
+      .main-content {
+        margin-right: 0 !important;
+        width: 100% !important;
+        padding: 30px 20px 80px 20px;
+      }
+
+      .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .photo-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .video-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .edu-flow {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .skill-matrix-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    /* ----------------------------- PRINT / PDF CLEAN STYLING (Dark Blue & Black Theme) */
+    @media print {
+      @page {
+        size: A4;
+        margin: 12mm 15mm;
+      }
+
+      *, *::before, *::after {
+        text-shadow: none !important;
+        box-shadow: none !important;
+      }
+
+      body {
+        background: #ffffff !important;
+        background-image: none !important;
+        color: #1a1a1a !important;
+        font-size: 9.2pt;
+        line-height: 1.55;
+      }
+
+      .profile-sidebar, .page-footer, .btn-top {
+        display: none !important;
+      }
+
+      .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+      }
+
+      /* Mobile Header becomes the Top Header for Print */
+      .mobile-header {
+        display: flex !important;
+        border-bottom: 2.5px solid #1a365d !important;
+        padding-bottom: 14px !important;
+        margin-bottom: 22px !important;
+      }
+
+      .hero-name {
+        color: #1a365d !important;
+        font-size: 1.6rem !important;
+      }
+
+      .hero-title-ar {
+        color: #1e3a8a !important;
+        font-weight: 700 !important;
+      }
+
+      .hero-title-en {
+        color: #475569 !important;
+      }
+
+      .mobile-avatar-wrap {
+        width: 75px !important;
+        height: 100px !important;
+        border-radius: 8px !important;
+        border: 1px solid #cbd5e1 !important;
+        background: none !important;
+        padding: 0 !important;
+      }
+
+      .mobile-avatar-img {
+        border-radius: 7px !important;
+      }
+
+      .status-badge {
+        background: #f0fdf4 !important;
+        border: 1px solid #86efac !important;
+        color: #166534 !important;
+      }
+
+      .status-dot {
+        background: #16a34a !important;
+        box-shadow: none !important;
+      }
+
+      .mobile-contacts {
+        color: #334155 !important;
+      }
+
+      .mobile-contacts a, .mobile-contacts span {
+        color: #334155 !important;
+      }
+
+      /* Section Headings */
+      .sct-block {
+        margin-top: 24px !important;
+      }
+
+      .sct-title-wrap {
+        border-bottom: 1.5px solid #cbd5e1 !important;
+        margin-bottom: 14px !important;
+        padding-bottom: 6px !important;
+      }
+
+      .sct-title {
+        color: #1a365d !important;
+        font-size: 1.15rem !important;
+      }
+
+      .sct-subtitle {
+        color: #2563eb !important;
+        font-weight: 700 !important;
+      }
+
+      /* Summary */
+      .summary-content {
+        color: #262626 !important;
+        text-align: justify !important;
+      }
+
+      .summary-content strong {
+        color: #0f172a !important;
+      }
+
+      .stat-pill {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+
+      .stat-pill-num {
+        color: #1e3a8a !important;
+      }
+
+      .stat-pill-label {
+        color: #475569 !important;
+      }
+
+      /* Specializations */
+      .spec-name {
+        color: #0f172a !important;
+        font-weight: 800 !important;
+      }
+
+      .spec-name-en {
+        color: #2563eb !important;
+      }
+
+      .spec-text {
+        color: #334155 !important;
+      }
+
+      .spec-bullet {
+        color: #1e3a8a !important;
+      }
+
+      .spec-tag-item {
+        background: #f1f5f9 !important;
+        border-color: #cbd5e1 !important;
+        color: #1e3a8a !important;
+      }
+
+      /* Timeline & Experience */
+      .timeline-stream::before {
+        background: #cbd5e1 !important;
+      }
+
+      .timeline-entry::after {
+        background: #1a365d !important;
+        border: 2px solid #ffffff !important;
+        box-shadow: none !important;
+      }
+
+      .entry-role {
+        color: #1a365d !important;
+        font-size: 1rem !important;
+      }
+
+      .entry-company {
+        color: #2563eb !important;
+        font-weight: 700 !important;
+      }
+
+      .entry-date {
+        color: #64748b !important;
+      }
+
+      .entry-bullet {
+        color: #262626 !important;
+      }
+
+      .entry-bullet::before {
+        color: #1a365d !important;
+      }
+
+      /* Toolbox */
+      .tool-pill {
+        background: #f8fafc !important;
+        border-color: #cbd5e1 !important;
+      }
+
+      .tool-pill-name {
+        color: #0f172a !important;
+      }
+
+      .tool-pill-desc {
+        color: #475569 !important;
+      }
+
+      /* Education */
+      .edu-degree {
+        color: #1a365d !important;
+      }
+
+      .edu-grade {
+        color: #b45309 !important;
+      }
+
+      .edu-detail {
+        color: #334155 !important;
+      }
+
+      /* Skills Matrix */
+      .skill-cat-title {
+        color: #1a365d !important;
+      }
+
+      .skill-cat-body {
+        color: #262626 !important;
+      }
+
+      .skill-matrix-item {
+        border-bottom-color: #e2e8f0 !important;
+      }
+
+      /* Page Break Optimizations */
+      .timeline-entry, .spec-item, .edu-block, .skill-matrix-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body id="Top">
+
+  <div class="personal">
+
+    <!-- =========================================================
+         MINIMAL & REFINED HERO SIDEBAR (Desktop Fixed)
+         ========================================================= -->
+    <aside class="profile-sidebar" aria-label="Profile Summary">
+      
+      <div class="sidebar-top">
+        <!-- Profile Avatar & Status -->
+        <div class="sidebar-avatar-container">
+          <div class="avatar-glow-ring">
+            <img src="profile.webp" alt="صالح حسين جحا - فني كهرباء وأنظمة طاقة" class="sidebar-avatar-img">
+          </div>
+          <div class="status-badge-corner" title="متاح للعمل والمشاريع">
+            <span class="status-dot"></span>
+            <span>متاح</span>
+          </div>
+        </div>
+
+        <!-- Identity -->
+        <div class="sidebar-identity">
+          <h1 class="hero-name">صالح حسين جحا</h1>
+          <div class="hero-title-ar">فني كهرباء وأنظمة طاقة</div>
+          <div class="hero-title-en">Power & Control Specialist</div>
+        </div>
+
+        <!-- Contact Links -->
+        <nav class="sidebar-contacts" aria-label="بيانات الاتصال">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <span>صيدا - البيسارية، لبنان</span>
+          </div>
+
+          <a href="tel:+96176056312" class="contact-item" title="اتصال مباشر">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <span class="ltr-text">+961 76 056 312</span>
+          </a>
+
+          <a href="mailto:sale7.alaa55@gmail.com" class="contact-item" title="إرسال بريد">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <span class="ltr-text">sale7.alaa55@gmail.com</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Actions -->
+      <div class="sidebar-actions">
+        <a href="portfolio.html" class="btn-minimal-primary" style="background: linear-gradient(135deg, rgba(0, 210, 255, 0.22), rgba(59, 130, 246, 0.28));">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          <span>معرض الأعمال (66)</span>
+        </a>
+        <a href="https://wa.me/96176056312" target="_blank" class="btn-minimal-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          <span>مراسلة واتساب</span>
+        </a>
+        <button onclick="window.print()" class="btn-minimal-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>طباعة / PDF</span>
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- =========================================================
+         UNBOXED MAIN STREAM (Clean, Open Editorial Layout)
+         ========================================================= -->
+    <main class="main-content">
+
+      <!-- Mobile Header (Visible only on smaller screens) -->
+      <header class="mobile-header">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div class="mobile-avatar-wrap">
+            <img src="profile.webp" alt="صالح حسين جحا" class="mobile-avatar-img">
+          </div>
+          <div style="flex: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h1 class="hero-name" style="font-size: 1.45rem;">صالح حسين جحا</h1>
+              <div class="status-badge" style="font-size: 0.7rem; padding: 2px 8px;">
+                <span class="status-dot"></span>
+                <span>متاح</span>
+              </div>
+            </div>
+            <div class="hero-title-ar" style="font-size: 0.88rem;">فني كهرباء وأنظمة طاقة</div>
+            <div class="hero-title-en" style="font-size: 0.72rem;">Electrical & Power Systems Specialist</div>
+          </div>
+        </div>
+        <div class="mobile-contacts">
+          <span>📍 صيدا - البيسارية، لبنان</span>
+          <a href="tel:+96176056312" class="ltr-text">📞 +961 76 056 312</a>
+          <a href="mailto:sale7.alaa55@gmail.com" class="ltr-text">✉️ sale7.alaa55@gmail.com</a>
+        </div>
+      </header>
+
+      <!-- -------------------------------------------------------
+           1. SUMMARY (الملخص المهني)
+           ------------------------------------------------------- -->
+      <section class="sct-block">
+        <div class="sct-title-wrap">
+          <h2 class="sct-title">الملخص المهني</h2>
+          <span class="sct-subtitle">Professional Summary</span>
+        </div>
+
+        <p class="summary-content">
+          <strong>فني كهرباء وأنظمة طاقة متمرس بخبرة ميدانية تتجاوز 20 عاماً (منذ عام 2003)</strong> في مجالات الصيانة الصناعية، هندسة التحكم، وحلول الطاقة المتجددة. متخصص في <strong>لف وصيانة المحركات والمولدات الكهربائية</strong> بمختلف قدراتها، وتصميم وتجميع <strong>لوحات التحكم والتوزيع (Control Panels)</strong>، وتأسيس دارات التحويل والتحكم للمولدات (ATS)، بالإضافة إلى خبرة تصنيع وتطوير <strong>محولات القدرة والشواحن (Inverters & Chargers)</strong>.
+          <br><br>
+          رائد في تنفيذ <strong>مشاريع الطاقة الشمسية الكهروضوئية المخصصة لتشغيل الآبار الارتوازية ومضخات المياه</strong>، مع خلفية تقنية متقدمة في <strong>البرمجة وصيانة الحواسيب</strong> تدعم التعامل بكفاءة عالية مع أجهزة التحكم الذكية وحل المشكلات الفنية المستعصية ميدانياً لتقليل فترات التوقف.
+        </p>
+
+        <div class="stats-pills-row">
+          <div class="stat-pill">
+            <span class="stat-pill-num">+20 عاماً</span>
+            <span class="stat-pill-label">خبرة ميدانية وصناعية (منذ 2003)</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">Solar VFD</span>
+            <span class="stat-pill-label">منظومات ضخ الآبار بالطاقة الشمسية</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">Control & ATS</span>
+            <span class="stat-pill-label">تصميم لوحات التحكم ولف المحركات</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------
+           2. SPECIALIZATIONS (مجالات التخصص الدقيق)
+           ------------------------------------------------------- -->
+      <section class="sct-block">
+        <div class="sct-title-wrap">
+          <h2 class="sct-title">مجالات التخصص الدقيق</h2>
+          <span class="sct-subtitle">Core Specializations</span>
+        </div>
+
+        <div class="specs-grid">
+          <!-- Spec 1 -->
+          <div class="spec-item">
+            <div class="spec-header">
+              <span class="spec-bullet">✦</span>
+              <div>
+                <span class="spec-name">لوحات التحكم والأتمتة</span>
+                <span class="spec-name-en">Control & Automation</span>
+              </div>
+            </div>
+            <p class="spec-text">
+              تصميم وتجميع لوحات التوزيع والتشغيل الصناعي، دمج مغيرات السرعة (VFDs)، وتأسيس دارات التحويل الأوتوماتيكي للمولدات (ATS).
+            </p>
+            <div class="spec-tags-line">
+              <span class="spec-tag-item">Control Panels</span>
+              <span class="spec-tag-item">VFDs</span>
+              <span class="spec-tag-item">ATS Units</span>
+            </div>
+          </div>
+
+          <!-- Spec 2 -->
+          <div class="spec-item">
+            <div class="spec-header">
+              <span class="spec-bullet">✦</span>
+              <div>
+                <span class="spec-name">لف وصيانة المحركات والمولدات</span>
+                <span class="spec-name-en">Motors & Generators Winding</span>
+              </div>
+            </div>
+            <p class="spec-text">
+              إعادة لف وإصلاح محركات التيار المتناوب (1-Phase / 3-Phase)، المولدات (Alternators)، والمحركات الغاطسة للآبار باختبارات عزل دقيقة.
+            </p>
+            <div class="spec-tags-line">
+              <span class="spec-tag-item">Alternators</span>
+              <span class="spec-tag-item">AC Motors</span>
+              <span class="spec-tag-item">Submersible Pumps</span>
+            </div>
+          </div>
+
+          <!-- Spec 3 -->
+          <div class="spec-item">
+            <div class="spec-header">
+              <span class="spec-bullet">✦</span>
+              <div>
+                <span class="spec-name">الطاقة الشمسية ومضخات الآبار</span>
+                <span class="spec-name-en">Solar Pumping Systems</span>
+              </div>
+            </div>
+            <p class="spec-text">
+              تنفيذ منظومات الطاقة الشمسية الكهروضوئية المخصصة لتشغيل الآبار الارتوازية ومحطات الضخ الزراعية والصناعية مع حساب الأحمال.
+            </p>
+            <div class="spec-tags-line">
+              <span class="spec-tag-item">Solar Pumping</span>
+              <span class="spec-tag-item">Deep Wells</span>
+              <span class="spec-tag-item">MPPT Control</span>
+            </div>
+          </div>
+
+          <!-- Spec 4 -->
+          <div class="spec-item">
+            <div class="spec-header">
+              <span class="spec-bullet">✦</span>
+              <div>
+                <span class="spec-name">إلكترونيات القدرة والأنظمة الرقمية</span>
+                <span class="spec-name-en">Power Electronics & IT</span>
+              </div>
+            </div>
+            <p class="spec-text">
+              تصنيع وتطوير محولات القدرة والشواحن الذكية (Inverters & Chargers)، مع صيانة عتاد الحواسيب والبرمجة للتحكم التقني.
+            </p>
+            <div class="spec-tags-line">
+              <span class="spec-tag-item">Inverters</span>
+              <span class="spec-tag-item">Chargers</span>
+              <span class="spec-tag-item">Hardware & Code</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------
+           3. WORK EXPERIENCE (الخبرات المهنية)
+           ------------------------------------------------------- -->
+      <section class="sct-block">
+        <div class="sct-title-wrap">
+          <h2 class="sct-title">الخبرات المهنية</h2>
+          <span class="sct-subtitle">Work Experience</span>
+        </div>
+
+        <div class="timeline-stream">
+          <!-- Job 1 -->
+          <article class="timeline-entry">
+            <div class="timeline-entry-header">
+              <h3 class="entry-role">مشرف فني واستشاري مستقل (Technical Supervisor & Freelancer)</h3>
+              <span class="entry-date">2011 – الحاضر (Present)</span>
+            </div>
+            <div class="entry-company">مركز مصطفى ضاهر للمضخات (Mustafa Daher Pumps Center) | صيدا، لبنان</div>
+            <ul class="entry-bullets">
+              <li class="entry-bullet">الإشراف الميداني وإدارة الفرق الفنية لتنفيذ مشاريع ضخ المياه والآبار الارتوازية بالاعتماد على منظومات الطاقة الشمسية (Solar Pumping Systems).</li>
+              <li class="entry-bullet">تصميم، تجميع، وصيانة لوحات التحكم الكهربائية ومغيرات السرعة (VFDs) الخاصة بمضخات الأعماق والري الزراعي والصناعي.</li>
+              <li class="entry-bullet">تنفيذ عمليات الفحص الشامل وإعادة لف وصيانة المحركات الغاطسة والمحركات الكهربائية الكبيرة بدقة عالية.</li>
+              <li class="entry-bullet">تشخيص الأعطال الطارئة وحل المشكلات الفنية المعقدة في المنظومات الكهربائية ميدانياً لتقليل فترات التوقف.</li>
+              <li class="entry-bullet">إدارة وتنسيق التوريدات والتواصل المباشر مع العملاء والموردين لضمان تسليم المشاريع وفق أعلى معايير الجودة.</li>
+            </ul>
+          </article>
+
+          <!-- Job 2 -->
+          <article class="timeline-entry">
+            <div class="timeline-entry-header">
+              <h3 class="entry-role">فني لف مولدات ومحركات كهربائية (Generators & Motors Winding Technician)</h3>
+              <span class="entry-date">2009 – 2011</span>
+            </div>
+            <div class="entry-company">المركز الفني للكهرباء (Technical Electrical Center) | لبنان</div>
+            <ul class="entry-bullets">
+              <li class="entry-bullet">تنفيذ عمليات إعادة لف وإصلاح المولدات الكهربائية (Alternators) ومحركات التيار المتناوب (AC Motors) بمختلف الأحجام والقدرات.</li>
+              <li class="entry-bullet">فحص عزل الملفات واختبار توازن العضو الدوار لضمان الأداء التشغيلي الأمثل والسلامة الفنية.</li>
+              <li class="entry-bullet">إجراء الصيانة الوقائية والطارئة للأنظمة الكهروميكانيكية في مختلف بيئات العمل.</li>
+            </ul>
+          </article>
+
+          <!-- Job 3 -->
+          <article class="timeline-entry">
+            <div class="timeline-entry-header">
+              <h3 class="entry-role">مؤسس ومدير ورشة فنية (Workshop Owner & Lead Technician)</h3>
+              <span class="entry-date">2008 – 2009</span>
+            </div>
+            <div class="entry-company">عمل حر وإدارة ورشة خاصة (Self-Employed) | لبنان</div>
+            <ul class="entry-bullets">
+              <li class="entry-bullet">تأسيس وإدارة ورشة متخصصة في لف المحركات وتجميع لوحات التحكم والتوزيع الكهربائية.</li>
+              <li class="entry-bullet">تصنيع وتطوير أجهزة تحويل الطاقة والشواحن والمحولات (Inverters, Chargers, & Adapters) بجودة عالية.</li>
+              <li class="entry-bullet">تقديم حلول طاقة مخصصة للأفراد والمؤسسات وتقديم خدمات ما بعد البيع والصيانة الفنية.</li>
+            </ul>
+          </article>
+
+          <!-- Job 4 -->
+          <article class="timeline-entry">
+            <div class="timeline-entry-header">
+              <h3 class="entry-role">فني أنظمة كهربائية وإلكترونيات قدرة (Electrical & Power Electronics Technician)</h3>
+              <span class="entry-date">2003 – 2008</span>
+            </div>
+            <div class="entry-company">Dia Engineering | لبنان</div>
+            <ul class="entry-bullets">
+              <li class="entry-bullet">تصنيع وتجميع أجهزة الإنفرتر (Inverters)، شواحن البطاريات (Battery Chargers)، ومحولات القدرة (Adapters).</li>
+              <li class="entry-bullet">تجميع وتوصيل لوحات التحكم والتشغيل الكهربائي ودارات التحويل (Control Panels & ATS).</li>
+              <li class="entry-bullet">تنفيذ أعمال لف المحركات الكهربائية وفحص الدارات والمكونات الإلكترونية للتأكد من مطابقتها للمواصفات.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      
+
+      <!-- -------------------------------------------------------
+           5. TOOLBOX & EQUIPMENT (ترسانة المعدات والتقنيات)
+           ------------------------------------------------------- -->
+      <section class="sct-block">
+        <div class="sct-title-wrap">
+          <h2 class="sct-title">ترسانة المعدات والتقنيات</h2>
+          <span class="sct-subtitle">Technical Toolbox</span>
+        </div>
+
+        <div class="toolbox-flow">
+          <div class="tool-pill">
+            <span class="tool-pill-icon">⚡</span>
+            <span class="tool-pill-name">Solar VFDs</span>
+            <span class="tool-pill-desc">مغيرات السرعة الشمسية</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">🎛️</span>
+            <span class="tool-pill-name">ATS & Control</span>
+            <span class="tool-pill-desc">لوحات التحويل والتحكم</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">⚙️</span>
+            <span class="tool-pill-name">Motors Winding</span>
+            <span class="tool-pill-desc">معدات لف المحركات</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">🔋</span>
+            <span class="tool-pill-name">Inverters & Chargers</span>
+            <span class="tool-pill-desc">محولات القدرة والشواحن</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">💧</span>
+            <span class="tool-pill-name">Deep Well Pumps</span>
+            <span class="tool-pill-desc">مضخات الآبار الغاطسة</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">📟</span>
+            <span class="tool-pill-name">Megger & Meters</span>
+            <span class="tool-pill-desc">أجهزة الفحص والعزل</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">💻</span>
+            <span class="tool-pill-name">Hardware & PC</span>
+            <span class="tool-pill-desc">صيانة الحواسيب والعتاد</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">📐</span>
+            <span class="tool-pill-name">Wiring Schematics</span>
+            <span class="tool-pill-desc">مخططات الدارات الصناعية</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------
+           5. EDUCATION & CERTIFICATIONS (التعليم والشهادات)
+           ------------------------------------------------------- -->
+      <section class="sct-block">
+        <div class="sct-title-wrap">
+          <h2 class="sct-title">التعليم والشهادات</h2>
+          <span class="sct-subtitle">Education & Certifications</span>
+        </div>
+
+        <div class="edu-flow">
+          <div class="edu-block">
+            <h3 class="edu-degree">دبلوم فني – معهد فني</h3>
+            <span class="sct-subtitle" style="margin-bottom: 4px;">Technical Institute Diploma</span>
+            <p class="edu-detail">تأهيل تقني وأكاديمي في أسس الهندسة الكهربائية، الدارات الصناعية، والتحكم الكهروميكانيكي.</p>
+          </div>
+
+          <div class="edu-block">
+            <h3 class="edu-degree">شهادة في البرمجة وصيانة الحواسيب</h3>
+            <span class="edu-grade">التقدير: جيد جداً (Very Good)</span>
+            <p class="edu-detail">تشخيص وصيانة العتاد الصلب (Hardware)، تثبيت الأنظمة، وأساسيات البرمجة للتحكم وتطوير الحلول التقنية.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------
+           6. SKILLS MATRIX (مصفوفة المهارات)
+           ------------------------------------------------------- -->
+      <section class="sct-block">
+        <div class="sct-title-wrap">
+          <h2 class="sct-title">المهارات والقدرات</h2>
+          <span class="sct-subtitle">Capabilities Matrix</span>
+        </div>
+
+        <div class="skills-matrix-flow">
+          <div class="skill-matrix-item">
+            <div class="skill-cat-title">⚙️ الأنظمة الكهروميكانيكية:</div>
+            <div class="skill-cat-body">لف وصيانة المحركات الكهربائية (1-Phase / 3-Phase)، المولدات، والمحولات بمختلف القدرات.</div>
+          </div>
+
+          <div class="skill-matrix-item">
+            <div class="skill-cat-title">🎛️ التحكم واللوحات:</div>
+            <div class="skill-cat-body">تصميم وتجميع لوحات التوزيع والتحكم (Control Panels)، مغيرات السرعة (VFDs)، ودارات التحويل (ATS).</div>
+          </div>
+
+          <div class="skill-matrix-item">
+            <div class="skill-cat-title">☀️ الطاقة المتجددة والقدرة:</div>
+            <div class="skill-cat-body">تصميم وتركيب منظومات الطاقة الشمسية للآبار الارتوازية، تصنيع وصيانة الـ Inverters والشواحن.</div>
+          </div>
+
+          <div class="skill-matrix-item">
+            <div class="skill-cat-title">💻 المهارات التقنية والرقمية:</div>
+            <div class="skill-cat-body">صيانة وتجميع الحواسيب، التعامل مع برمجيات التحكم وفحص الأعطال الرقمية واستخدام أجهزة القياس بدقة.</div>
+          </div>
+
+          <div class="skill-matrix-item">
+            <div class="skill-cat-title">🌐 الإدارة واللغات:</div>
+            <div class="skill-cat-body">إدارة الفرق الميدانية، حل المشكلات المعقدة، التواصل الفني | اللغة العربية (الأم)، الإنجليزية (مستوى مهني وتقني).</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------
+           4. PORTFOLIO SHOWCASE BANNER (معرض الأعمال والتوثيق الميداني)
+           ------------------------------------------------------- -->
+      <section class="sct-block" id="portfolio-section">
+        <div class="sct-title-wrap">
+          <h2 class="sct-title">معرض الأعمال والتوثيق الميداني</h2>
+          <span class="sct-subtitle">Field Portfolio & Media Showcase</span>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(0, 210, 255, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%); border: 1px solid var(--border-accent); border-radius: 14px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <span style="font-size: 1.3rem;">⚡</span>
+              <h3 style="font-size: 1.12rem; font-weight: 800; color: #fff;">معرض الصور والفيديوهات الحية (66 عنصر موثق)</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-2); line-height: 1.65; margin: 0;">
+              توثيق مرئي وميداني شامل لـ 49 صورة و 17 مقطع فيديو لمشاريع محطات الطاقة الشمسية، لف وصيانة المحركات والمولدات، تصميم وتجميع لوحات التحكم ودارات التحويل ATS.
+            </p>
+          </div>
+          <a href="portfolio.html" class="btn-minimal-primary" style="padding: 12px 26px; font-size: 0.92rem; text-decoration: none; white-space: nowrap;">
+            <span>فتح معرض الأعمال الكامل ←</span>
+          </a>
+        </div>
+      </section>
+      
+      <!-- -------------------------------------------------------
+           FOOTER
+           ------------------------------------------------------- -->
+      <footer class="page-footer">
+        <div>صالح حسين جحا &copy; <span id="current-year"></span> | جميع الحقوق محفوظة</div>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-top">
+          ↑ العودة للأعلى
+        </button>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
