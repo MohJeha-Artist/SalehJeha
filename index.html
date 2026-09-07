@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="Hassan Ali Saade - Professional Restaurant Manager & Hospitality Specialist with 7+ years experience in fine dining, 5-star hotel hospitality, and food safety management.">
-  <meta name="author" content="Hassan Ali Saade">
+  <meta name="description" content="صالح حسين جحا - فني كهرباء وأنظمة طاقة | خبرة ميدانية تتجاوز 20 عاماً في التحكم الصناعي، لف المحركات، ومشاريع الطاقة الشمسية">
+  <meta name="author" content="صالح حسين جحا">
 
-  <title>Hassan Ali Saade | Restaurant Manager & Hospitality Specialist</title>
+  <title>صالح حسين جحا | فني كهرباء وأنظمة طاقة - Electrical & Power Systems Specialist</title>
 
-  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <!-- Google Fonts: Cairo & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* -------------------------------------------------------------
@@ -29,17 +29,16 @@
       --accent-glow: rgba(0, 210, 255, 0.25);
       --accent-sec: #3b82f6;
       --accent-amber: #f59e0b;
-      --accent-emerald: #10b981;
       
       --border-subtle: rgba(255, 255, 255, 0.07);
       --border-accent: rgba(0, 210, 255, 0.3);
       
       --text-1: #ffffff;
-      --text-2: rgba(255, 255, 255, 0.84);
+      --text-2: rgba(255, 255, 255, 0.82);
       --text-3: rgba(255, 255, 255, 0.55);
       
-      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+      --font-ar: 'Cairo', system-ui, sans-serif;
+      --font-en: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
       
       --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -54,7 +53,7 @@
       scroll-behavior: smooth;
       background-color: var(--bg-main);
       color: var(--text-2);
-      font-family: var(--font-main);
+      font-family: var(--font-ar);
     }
 
     body {
@@ -77,18 +76,18 @@
       position: relative;
     }
 
-    /* ----------------------------- LEFT SIDEBAR (Minimal & Modern) */
+    /* ----------------------------- LEFT/SIDEBAR HERO (Minimal & Modern) */
     .profile-sidebar {
       position: fixed;
       top: 0;
-      left: 0;
+      right: 0; /* RTL placement */
       width: 320px;
       height: 100vh;
       padding: 40px 32px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border-right: 1px solid var(--border-subtle);
+      border-left: 1px solid var(--border-subtle);
       background: var(--bg-sidebar);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -101,7 +100,7 @@
       gap: 16px;
     }
 
-    /* Avatar Profile Photo (3x4 Aspect Ratio) */
+    /* Minimal Avatar Profile Photo (3x4 Aspect Ratio) */
     .sidebar-avatar-container {
       position: relative;
       width: 120px;
@@ -207,39 +206,36 @@
     }
 
     .hero-name {
-      font-family: var(--font-heading);
       font-size: 1.65rem;
       font-weight: 800;
       color: #fff;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-title-main {
-      font-family: var(--font-heading);
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-top: 5px;
+      line-height: 1.25;
       letter-spacing: -0.01em;
     }
 
-    .hero-title-sub {
-      font-family: var(--font-main);
+    .hero-title-ar {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .hero-title-en {
+      font-family: var(--font-en);
       font-size: 0.78rem;
       color: var(--text-3);
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     /* Minimal Contact List */
     .sidebar-contacts {
       display: flex;
       flex-direction: column;
-      gap: 13px;
-      margin-top: 24px;
-      padding-top: 22px;
+      gap: 14px;
+      margin-top: 28px;
+      padding-top: 24px;
       border-top: 1px solid var(--border-subtle);
     }
 
@@ -247,15 +243,16 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       color: var(--text-2);
       text-decoration: none;
       transition: var(--transition);
+      direction: rtl;
     }
 
     .contact-item:hover {
       color: var(--accent);
-      transform: translateX(4px);
+      transform: translateX(-4px);
     }
 
     .contact-icon {
@@ -283,6 +280,12 @@
       stroke: currentColor;
     }
 
+    .ltr-text {
+      direction: ltr;
+      unicode-bidi: embed;
+      font-family: var(--font-en);
+    }
+
     /* Sidebar Actions */
     .sidebar-actions {
       display: flex;
@@ -299,7 +302,7 @@
       gap: 8px;
       padding: 10px 16px;
       border-radius: 10px;
-      background: linear-gradient(135deg, rgba(0, 210, 255, 0.18), rgba(59, 130, 246, 0.24));
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.15), rgba(59, 130, 246, 0.2));
       border: 1px solid var(--border-accent);
       color: #fff;
       font-weight: 700;
@@ -339,10 +342,10 @@
       background: rgba(255, 255, 255, 0.03);
     }
 
-    /* ----------------------------- MAIN CONTENT STREAM ----------------------------- */
+    /* ----------------------------- RIGHT/MAIN CONTENT STREAM (Unboxed & Clean) */
     .main-content {
       position: relative;
-      margin-left: 320px; /* Space for sidebar */
+      margin-right: 320px; /* Space for sidebar */
       width: calc(100% - 320px);
       padding: 50px 70px 100px 70px;
       min-height: 100vh;
@@ -369,7 +372,7 @@
       margin-top: 10px;
     }
 
-    .mobile-contacts a, .mobile-contacts span {
+    .mobile-contacts a {
       color: var(--text-2);
       font-size: 0.85rem;
       text-decoration: none;
@@ -378,9 +381,9 @@
       gap: 6px;
     }
 
-    /* ----------------------------- SECTION HEADINGS ----------------------------- */
+    /* ----------------------------- UNBOXED SECTION HEADINGS */
     .sct-block {
-      margin-top: 52px;
+      margin-top: 55px;
     }
 
     .sct-block:first-of-type {
@@ -391,13 +394,12 @@
       display: flex;
       align-items: baseline;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .sct-title {
-      font-family: var(--font-heading);
       font-size: 1.35rem;
       font-weight: 800;
       color: #fff;
@@ -406,15 +408,15 @@
     }
 
     .sct-subtitle {
-      font-family: var(--font-main);
+      font-family: var(--font-en);
       font-size: 0.78rem;
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
-    /* ----------------------------- SUMMARY ----------------------------- */
+    /* ----------------------------- UNBOXED SUMMARY */
     .summary-content {
       font-size: 1.02rem;
       line-height: 1.85;
@@ -427,12 +429,12 @@
       font-weight: 700;
     }
 
-    /* Highlight Stat Pills */
+    /* Minimal Highlight Stat Pills */
     .stats-pills-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 20px;
     }
 
     .stat-pill {
@@ -452,7 +454,7 @@
     }
 
     .stat-pill-num {
-      font-family: var(--font-heading);
+      font-family: var(--font-en);
       font-weight: 800;
       color: var(--accent);
       font-size: 0.95rem;
@@ -463,7 +465,7 @@
       color: var(--text-3);
     }
 
-    /* ----------------------------- CORE SPECIALIZATIONS ----------------------------- */
+    /* ----------------------------- UNBOXED SPECIALIZATIONS (Clean 2-Col Flow) */
     .specs-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -492,7 +494,6 @@
 
     .spec-name {
       display: block;
-      font-family: var(--font-heading);
       font-size: 1.05rem;
       font-weight: 700;
       color: #fff;
@@ -501,12 +502,12 @@
 
     .spec-name-en {
       display: block;
+      font-family: var(--font-en);
       font-size: 0.76rem;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.04em;
       margin-top: 2px;
-      font-weight: 600;
     }
 
     .spec-text {
@@ -523,18 +524,19 @@
     }
 
     .spec-tag-item {
+      font-family: var(--font-en);
       font-size: 0.74rem;
       color: var(--text-3);
       background: rgba(255, 255, 255, 0.03);
-      padding: 3px 9px;
+      padding: 2px 8px;
       border-radius: 4px;
       border: 1px solid var(--border-subtle);
     }
 
-    /* ----------------------------- WORK EXPERIENCE TIMELINE ----------------------------- */
+    /* ----------------------------- UNBOXED WORK EXPERIENCE TIMELINE */
     .timeline-stream {
       position: relative;
-      padding-left: 24px; /* Line space */
+      padding-right: 24px; /* Line space */
       margin-top: 10px;
     }
 
@@ -542,7 +544,7 @@
       content: "";
       position: absolute;
       top: 8px;
-      left: 0;
+      right: 0;
       bottom: 12px;
       width: 2px;
       background: linear-gradient(to bottom, var(--accent), rgba(0, 210, 255, 0.15) 85%, transparent);
@@ -561,7 +563,7 @@
       content: "";
       position: absolute;
       top: 6px;
-      left: -28px; /* Center on vertical line */
+      right: -28px; /* Center on vertical line */
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -580,16 +582,17 @@
     }
 
     .entry-role {
-      font-family: var(--font-heading);
       font-size: 1.1rem;
       font-weight: 800;
       color: #fff;
     }
 
     .entry-date {
+      font-family: var(--font-en);
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--accent);
+      direction: ltr;
     }
 
     .entry-company {
@@ -603,26 +606,26 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
     }
 
     .entry-bullet {
       position: relative;
-      padding-left: 18px;
+      padding-right: 18px;
       font-size: 0.93rem;
       color: var(--text-2);
       line-height: 1.6;
     }
 
     .entry-bullet::before {
-      content: "•";
+      content: "–";
       position: absolute;
-      left: 2px;
+      right: 2px;
       color: var(--accent);
       font-weight: bold;
     }
 
-    /* ----------------------------- TOOLBOX (Tech & Systems Badges) ----------------------------- */
+    /* ----------------------------- UNBOXED TOOLBOX (Minimal Tech Badges) */
     .toolbox-flow {
       display: flex;
       flex-wrap: wrap;
@@ -649,7 +652,7 @@
 
     .tool-pill-icon {
       color: var(--accent);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1;
     }
 
@@ -657,7 +660,7 @@
       font-size: 0.88rem;
       font-weight: 700;
       color: #fff;
-      font-family: var(--font-heading);
+      font-family: var(--font-en);
     }
 
     .tool-pill-desc {
@@ -665,7 +668,7 @@
       color: var(--text-3);
     }
 
-    /* ----------------------------- EDUCATION & CERTIFICATIONS ----------------------------- */
+    /* ----------------------------- UNBOXED EDUCATION & CERTIFICATIONS */
     .edu-flow {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -680,7 +683,6 @@
     }
 
     .edu-degree {
-      font-family: var(--font-heading);
       font-size: 1.02rem;
       font-weight: 800;
       color: #fff;
@@ -699,49 +701,7 @@
       margin-top: 4px;
     }
 
-    /* ----------------------------- CERTIFICATIONS LIST GRID ----------------------------- */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 10px;
-    }
-
-    .cert-card {
-      padding: 12px 16px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      transition: var(--transition);
-    }
-
-    .cert-card:hover {
-      border-color: var(--border-accent);
-      background: rgba(0, 210, 255, 0.03);
-    }
-
-    .cert-icon {
-      font-size: 1.1rem;
-      line-height: 1.2;
-    }
-
-    .cert-name {
-      font-weight: 700;
-      font-size: 0.92rem;
-      color: #fff;
-      margin-bottom: 2px;
-    }
-
-    .cert-desc {
-      font-size: 0.8rem;
-      color: var(--text-3);
-      line-height: 1.4;
-    }
-
-    /* ----------------------------- SKILLS MATRIX ----------------------------- */
+    /* ----------------------------- UNBOXED SKILLS MATRIX */
     .skills-matrix-flow {
       display: flex;
       flex-direction: column;
@@ -751,7 +711,7 @@
 
     .skill-matrix-item {
       display: grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 200px 1fr;
       gap: 16px;
       align-items: baseline;
       padding-bottom: 12px;
@@ -764,7 +724,6 @@
     }
 
     .skill-cat-title {
-      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 0.92rem;
       color: var(--accent);
@@ -779,38 +738,7 @@
       line-height: 1.6;
     }
 
-    /* ----------------------------- LANGUAGES ROW ----------------------------- */
-    .lang-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 10px;
-    }
-
-    .lang-card {
-      flex: 1;
-      min-width: 180px;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .lang-name {
-      font-weight: 700;
-      color: #fff;
-      font-size: 0.95rem;
-    }
-
-    .lang-level {
-      font-size: 0.82rem;
-      color: var(--accent);
-    }
-
-    /* ----------------------------- FOOTER ----------------------------- */
+    /* ----------------------------- FOOTER */
     .page-footer {
       margin-top: 70px;
       padding-top: 24px;
@@ -830,7 +758,7 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 0.8rem;
-      font-family: var(--font-main);
+      font-family: var(--font-ar);
       transition: var(--transition);
     }
 
@@ -839,7 +767,309 @@
       background: var(--accent-dim);
     }
 
-    /* ----------------------------- RESPONSIVE (Mobile & Tablet) ----------------------------- */
+    /* ----------------------------- PORTFOLIO & CREATIVE GALLERY STYLES */
+    .portfolio-subheading {
+      color: var(--text-3);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+    }
+
+    .gallery-filter-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-2);
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: var(--font-ar);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .gallery-tab-btn:hover {
+      background: rgba(0, 210, 255, 0.08);
+      border-color: var(--border-accent);
+      color: #fff;
+    }
+
+    .gallery-tab-btn.active {
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.2), rgba(59, 130, 246, 0.25));
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 15px var(--accent-dim);
+    }
+
+    .gallery-count-badge {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--accent);
+    }
+
+    /* Photos Grid */
+    .photo-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #090e18;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(0, 210, 255, 0.25);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5, 9, 18, 0.92) 0%, rgba(5, 9, 18, 0.2) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-zoom-icon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 210, 255, 0.9);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-zoom-icon {
+      transform: scale(1);
+    }
+
+    .gallery-caption {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    /* Video Showcase Grid */
+    .video-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .video-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .video-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .video-element {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-info-bar {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .video-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .video-tag {
+      font-size: 0.74rem;
+      color: var(--accent);
+      font-family: var(--font-en);
+    }
+
+    /* Load More / Expand Button */
+    .gallery-expand-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .btn-expand-gallery {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      font-family: var(--font-ar);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-expand-gallery:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 14, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 12px;
+      border: 1px solid var(--border-accent);
+      box-shadow: 0 0 40px rgba(0, 210, 255, 0.3);
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      margin-top: 14px;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .lightbox-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .lightbox-close {
+      top: 25px;
+      left: 25px;
+    }
+
+    .lightbox-next {
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-prev {
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* ----------------------------- RESPONSIVE (Mobile & Tablet) */
     @media (max-width: 1024px) {
       .profile-sidebar {
         display: none !important;
@@ -850,7 +1080,7 @@
       }
 
       .main-content {
-        margin-left: 0 !important;
+        margin-right: 0 !important;
         width: 100% !important;
         padding: 30px 20px 80px 20px;
       }
@@ -860,9 +1090,19 @@
         gap: 20px;
       }
 
-      .edu-flow, .certs-grid {
+      .photo-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .video-gallery-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
+      }
+
+      .edu-flow {
+        grid-template-columns: 1fr;
+        gap: 18px;
       }
 
       .skill-matrix-item {
@@ -871,7 +1111,7 @@
       }
     }
 
-    /* ----------------------------- PRINT / PDF CLEAN STYLING ----------------------------- */
+    /* ----------------------------- PRINT / PDF CLEAN STYLING (Dark Blue & Black Theme) */
     @media print {
       @page {
         size: A4;
@@ -906,7 +1146,7 @@
         display: flex !important;
         border-bottom: 2.5px solid #1a365d !important;
         padding-bottom: 14px !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 22px !important;
       }
 
       .hero-name {
@@ -914,12 +1154,12 @@
         font-size: 1.6rem !important;
       }
 
-      .hero-title-main {
+      .hero-title-ar {
         color: #1e3a8a !important;
         font-weight: 700 !important;
       }
 
-      .hero-title-sub {
+      .hero-title-en {
         color: #475569 !important;
       }
 
@@ -957,13 +1197,13 @@
 
       /* Section Headings */
       .sct-block {
-        margin-top: 22px !important;
+        margin-top: 24px !important;
       }
 
       .sct-title-wrap {
         border-bottom: 1.5px solid #cbd5e1 !important;
-        margin-bottom: 12px !important;
-        padding-bottom: 5px !important;
+        margin-bottom: 14px !important;
+        padding-bottom: 6px !important;
       }
 
       .sct-title {
@@ -1057,16 +1297,16 @@
       }
 
       /* Toolbox */
-      .tool-pill, .cert-card, .lang-card {
+      .tool-pill {
         background: #f8fafc !important;
         border-color: #cbd5e1 !important;
       }
 
-      .tool-pill-name, .cert-name, .lang-name {
+      .tool-pill-name {
         color: #0f172a !important;
       }
 
-      .tool-pill-desc, .cert-desc {
+      .tool-pill-desc {
         color: #475569 !important;
       }
 
@@ -1097,7 +1337,7 @@
       }
 
       /* Page Break Optimizations */
-      .timeline-entry, .spec-item, .edu-block, .skill-matrix-item, .cert-card, .lang-card {
+      .timeline-entry, .spec-item, .edu-block, .skill-matrix-item {
         break-inside: avoid;
         page-break-inside: avoid;
       }
@@ -1118,23 +1358,23 @@
         <!-- Profile Avatar & Status -->
         <div class="sidebar-avatar-container">
           <div class="avatar-glow-ring">
-            <img src="profile.webp" alt="Hassan Ali Saade - Restaurant Manager" class="sidebar-avatar-img">
+            <img src="profile.webp" alt="صالح حسين جحا - فني كهرباء وأنظمة طاقة" class="sidebar-avatar-img">
           </div>
-          <div class="status-badge-corner" title="Available for Employment">
+          <div class="status-badge-corner" title="متاح للعمل والمشاريع">
             <span class="status-dot"></span>
-            <span>Available</span>
+            <span>متاح</span>
           </div>
         </div>
 
         <!-- Identity -->
         <div class="sidebar-identity">
-          <h1 class="hero-name">Hassan Ali Saade</h1>
-          <div class="hero-title-main">Restaurant Manager</div>
-          <div class="hero-title-sub">Hospitality & F&B Specialist</div>
+          <h1 class="hero-name">صالح حسين جحا</h1>
+          <div class="hero-title-ar">فني كهرباء وأنظمة طاقة</div>
+          <div class="hero-title-en">Power & Control Specialist</div>
         </div>
 
         <!-- Contact Links -->
-        <nav class="sidebar-contacts" aria-label="Contact Information">
+        <nav class="sidebar-contacts" aria-label="بيانات الاتصال">
           <div class="contact-item">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1142,37 +1382,45 @@
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </div>
-            <span>Kuwait (Origin: Saida, Lebanon)</span>
+            <span>صيدا - البيسارية، لبنان</span>
           </div>
 
-          <a href="tel:+96551797250" class="contact-item" title="Direct Phone Call">
+          <a href="tel:+96176056312" class="contact-item" title="اتصال مباشر">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
               </svg>
             </div>
-            <span>+965 51797250</span>
+            <span class="ltr-text">+961 76 056 312</span>
           </a>
 
-          <a href="mailto:saadehassan83@gmail.com" class="contact-item" title="Send Email">
+          <a href="mailto:salehjeha.engineer@gmail.com" class="contact-item" title="إرسال بريد">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </div>
-            <span>saadehassan83@gmail.com</span>
+            <span class="ltr-text">salehjeha.engineer@gmail.com</span>
           </a>
         </nav>
       </div>
 
       <!-- Actions -->
       <div class="sidebar-actions">
-        <a href="https://wa.me/96551797250" target="_blank" class="btn-minimal-primary">
+        <a href="portfolio.html" class="btn-minimal-primary" style="background: linear-gradient(135deg, rgba(0, 210, 255, 0.22), rgba(59, 130, 246, 0.28));">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          <span>معرض الأعمال (66)</span>
+        </a>
+        <a href="https://wa.me/96176056312" target="_blank" class="btn-minimal-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
           </svg>
-          <span>WhatsApp Message</span>
+          <span>مراسلة واتساب</span>
         </a>
         <button onclick="window.print()" class="btn-minimal-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1180,14 +1428,14 @@
             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
             <rect x="6" y="14" width="12" height="8"></rect>
           </svg>
-          <span>Print / Save PDF</span>
+          <span>طباعة / PDF</span>
         </button>
       </div>
 
     </aside>
 
     <!-- =========================================================
-         MAIN CONTENT STREAM
+         UNBOXED MAIN STREAM (Clean, Open Editorial Layout)
          ========================================================= -->
     <main class="main-content">
 
@@ -1195,67 +1443,63 @@
       <header class="mobile-header">
         <div style="display: flex; align-items: center; gap: 16px;">
           <div class="mobile-avatar-wrap">
-            <img src="profile.webp" alt="Hassan Ali Saade" class="mobile-avatar-img">
-            <div class="status-badge-corner" style="bottom: -5px; right: -5px; padding: 2px 7px; font-size: 0.65rem;" title="Available for Employment">
+            <img src="profile.webp" alt="صالح حسين جحا" class="mobile-avatar-img">
+            <div class="status-badge-corner" style="bottom: -5px; right: -5px; padding: 2px 7px; font-size: 0.65rem;" title="متاح للعمل والمشاريع">
               <span class="status-dot"></span>
-              <span>Available</span>
+              <span>متاح</span>
             </div>
           </div>
           <div style="flex: 1;">
-            <h1 class="hero-name" style="font-size: 1.45rem;">Hassan Ali Saade</h1>
-            <div class="hero-title-main" style="font-size: 0.9rem;">Restaurant Manager</div>
-            <div class="hero-title-sub" style="font-size: 0.74rem;">Hospitality & F&B Specialist</div>
+            <h1 class="hero-name" style="font-size: 1.4rem;">صالح حسين جحا</h1>
+            <div class="hero-title-ar" style="font-size: 0.88rem;">فني كهرباء وأنظمة طاقة</div>
+            <div class="hero-title-en" style="font-size: 0.72rem;">Electrical & Power Systems Specialist</div>
           </div>
         </div>
         <div class="mobile-contacts">
-          <span>📍 Kuwait (Origin: Saida, Lebanon)</span>
-          <a href="tel:+96551797250">📞 +965 51797250</a>
-          <a href="mailto:saadehassan83@gmail.com">✉️ saadehassan83@gmail.com</a>
+          <span>📍 صيدا - البيسارية، لبنان</span>
+          <a href="tel:+96176056312" class="ltr-text">📞 +961 76 056 312</a>
+          <a href="mailto:salehjeha.engineer@gmail.com" class="ltr-text">✉️ salehjeha.engineer@gmail.com</a>
         </div>
       </header>
 
       <!-- -------------------------------------------------------
-           1. SUMMARY
+           1. SUMMARY (الملخص المهني)
            ------------------------------------------------------- -->
       <section class="sct-block">
         <div class="sct-title-wrap">
-          <h2 class="sct-title">Executive Summary</h2>
-          <span class="sct-subtitle">Profile & Background</span>
+          <h2 class="sct-title">الملخص المهني</h2>
+          <span class="sct-subtitle">Professional Summary</span>
         </div>
 
         <p class="summary-content">
-          <strong>Dynamic, results-driven Restaurant Manager & Hospitality Professional with over 7 years of progressive leadership experience</strong> across high-end fine dining, luxury 5-star hotel hospitality (Babylon Rotana), international upscale restaurants (Congo Brazzaville), and large-scale industrial catering operations in Kuwait (Abhar Catering). Proven track record in orchestrating flawless <strong>sequence of service</strong>, maximizing table turnaround, elevating guest satisfaction ratings, and managing front-of-house teams to achieve peak operational efficiency.
+          <strong>فني كهرباء وأنظمة طاقة متمرس بخبرة ميدانية تتجاوز 20 عاماً (منذ عام 2003)</strong> في مجالات الصيانة الصناعية، هندسة التحكم، وحلول الطاقة المتجددة. متخصص في <strong>لف وصيانة المحركات والمولدات الكهربائية</strong> بمختلف قدراتها، وتصميم وتجميع <strong>لوحات التحكم والتوزيع (Control Panels)</strong>، وتأسيس دارات التحويل والتحكم للمولدات (ATS)، بالإضافة إلى خبرة تصنيع وتطوير <strong>محولات القدرة والشواحن (Inverters & Chargers)</strong>.
           <br><br>
-          Certified in international quality, food safety, and occupational health systems including <strong>ISO 9001, ISO 22000, ISO 45001, and Kuwait Quality Mark (KQM)</strong> standards. Leverages an Information Technology background to integrate hospitality POS/PMS software (<strong>Micros, Opera, BioTime</strong>) and modern productivity tools to streamline inventory, table management, labor scheduling, and executive reporting.
+          رائد في تنفيذ <strong>مشاريع الطاقة الشمسية الكهروضوئية المخصصة لتشغيل الآبار الارتوازية ومضخات المياه</strong>، مع خلفية تقنية متقدمة في <strong>البرمجة وصيانة الحواسيب</strong> تدعم التعامل بكفاءة عالية مع أجهزة التحكم الذكية وحل المشكلات الفنية المستعصية ميدانياً لتقليل فترات التوقف.
         </p>
 
         <div class="stats-pills-row">
           <div class="stat-pill">
-            <span class="stat-pill-num">7+ Years</span>
-            <span class="stat-pill-label">Hospitality & F&B Experience</span>
+            <span class="stat-pill-num">+20 عاماً</span>
+            <span class="stat-pill-label">خبرة ميدانية وصناعية (منذ 2003)</span>
           </div>
           <div class="stat-pill">
-            <span class="stat-pill-num">5-Star Standards</span>
-            <span class="stat-pill-label">Luxury Hotel & Fine Dining</span>
+            <span class="stat-pill-num">Solar VFD</span>
+            <span class="stat-pill-label">منظومات ضخ الآبار بالطاقة الشمسية</span>
           </div>
           <div class="stat-pill">
-            <span class="stat-pill-num">ISO & KQM</span>
-            <span class="stat-pill-label">ISO 22000, 9001, 45001 & Food Safety</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-pill-num">Tech-Driven</span>
-            <span class="stat-pill-label">Micros POS, Opera & BioTime</span>
+            <span class="stat-pill-num">Control & ATS</span>
+            <span class="stat-pill-label">تصميم لوحات التحكم ولف المحركات</span>
           </div>
         </div>
       </section>
 
       <!-- -------------------------------------------------------
-           2. CORE SPECIALIZATIONS
+           2. SPECIALIZATIONS (مجالات التخصص الدقيق)
            ------------------------------------------------------- -->
       <section class="sct-block">
         <div class="sct-title-wrap">
-          <h2 class="sct-title">Core Specializations</h2>
-          <span class="sct-subtitle">Key Areas of Expertise</span>
+          <h2 class="sct-title">مجالات التخصص الدقيق</h2>
+          <span class="sct-subtitle">Core Specializations</span>
         </div>
 
         <div class="specs-grid">
@@ -1264,17 +1508,17 @@
             <div class="spec-header">
               <span class="spec-bullet">✦</span>
               <div>
-                <span class="spec-name">Restaurant & Floor Operations</span>
-                <span class="spec-name-en">Service & Floor Management</span>
+                <span class="spec-name">لوحات التحكم والأتمتة</span>
+                <span class="spec-name-en">Control & Automation</span>
               </div>
             </div>
             <p class="spec-text">
-              Mastery of fine-dining table service sequences, floor station allocation, VIP guest hosting, reservation management, banquet organization, and complaint resolution.
+              تصميم وتجميع لوحات التوزيع والتشغيل الصناعي، دمج مغيرات السرعة (VFDs)، وتأسيس دارات التحويل الأوتوماتيكي للمولدات (ATS).
             </p>
             <div class="spec-tags-line">
-              <span class="spec-tag-item">Sequence of Service</span>
-              <span class="spec-tag-item">VIP Hosting</span>
-              <span class="spec-tag-item">Floor Coordination</span>
+              <span class="spec-tag-item">Control Panels</span>
+              <span class="spec-tag-item">VFDs</span>
+              <span class="spec-tag-item">ATS Units</span>
             </div>
           </div>
 
@@ -1283,18 +1527,17 @@
             <div class="spec-header">
               <span class="spec-bullet">✦</span>
               <div>
-                <span class="spec-name">Quality & Food Safety Compliance</span>
-                <span class="spec-name-en">ISO & HACCP Standards</span>
+                <span class="spec-name">لف وصيانة المحركات والمولدات</span>
+                <span class="spec-name-en">Motors & Generators Winding</span>
               </div>
             </div>
             <p class="spec-text">
-              Strict implementation and monitoring of ISO 22000 (Food Safety), ISO 9001 (Quality Management), ISO 45001 (Health & Safety), and Kuwait Quality Mark (KQM) protocols.
+              إعادة لف وإصلاح محركات التيار المتناوب (1-Phase / 3-Phase)، المولدات (Alternators)، والمحركات الغاطسة للآبار باختبارات عزل دقيقة.
             </p>
             <div class="spec-tags-line">
-              <span class="spec-tag-item">ISO 22000</span>
-              <span class="spec-tag-item">ISO 9001</span>
-              <span class="spec-tag-item">ISO 45001</span>
-              <span class="spec-tag-item">Kuwait Quality Mark</span>
+              <span class="spec-tag-item">Alternators</span>
+              <span class="spec-tag-item">AC Motors</span>
+              <span class="spec-tag-item">Submersible Pumps</span>
             </div>
           </div>
 
@@ -1303,18 +1546,17 @@
             <div class="spec-header">
               <span class="spec-bullet">✦</span>
               <div>
-                <span class="spec-name">Hospitality Systems & Technology</span>
-                <span class="spec-name-en">POS, PMS & Biometric Systems</span>
+                <span class="spec-name">الطاقة الشمسية ومضخات الآبار</span>
+                <span class="spec-name-en">Solar Pumping Systems</span>
               </div>
             </div>
             <p class="spec-text">
-              Proficient execution on Micros POS for billing/order routing, Opera PMS for guest folio/room charges, and BioTime software for workforce attendance and timekeeping.
+              تنفيذ منظومات الطاقة الشمسية الكهروضوئية المخصصة لتشغيل الآبار الارتوازية ومحطات الضخ الزراعية والصناعية مع حساب الأحمال.
             </p>
             <div class="spec-tags-line">
-              <span class="spec-tag-item">Micros POS</span>
-              <span class="spec-tag-item">Opera PMS</span>
-              <span class="spec-tag-item">BioTime</span>
-              <span class="spec-tag-item">MS Office</span>
+              <span class="spec-tag-item">Solar Pumping</span>
+              <span class="spec-tag-item">Deep Wells</span>
+              <span class="spec-tag-item">MPPT Control</span>
             </div>
           </div>
 
@@ -1323,344 +1565,240 @@
             <div class="spec-header">
               <span class="spec-bullet">✦</span>
               <div>
-                <span class="spec-name">Team Leadership & Service Training</span>
-                <span class="spec-name-en">Staff Coaching & Development</span>
+                <span class="spec-name">إلكترونيات القدرة والأنظمة الرقمية</span>
+                <span class="spec-name-en">Power Electronics & IT</span>
               </div>
             </div>
             <p class="spec-text">
-              Conducting pre-shift briefings, training waitstaff on menu ingredients, wine and beverage service, cross-selling/upselling techniques, and hygiene best practices.
+              تصنيع وتطوير محولات القدرة والشواحن الذكية (Inverters & Chargers)، مع صيانة عتاد الحواسيب والبرمجة للتحكم التقني.
             </p>
             <div class="spec-tags-line">
-              <span class="spec-tag-item">Staff Mentoring</span>
-              <span class="spec-tag-item">Bartending & Mixology</span>
-              <span class="spec-tag-item">SOP Implementation</span>
+              <span class="spec-tag-item">Inverters</span>
+              <span class="spec-tag-item">Chargers</span>
+              <span class="spec-tag-item">Hardware & Code</span>
             </div>
           </div>
         </div>
       </section>
 
       <!-- -------------------------------------------------------
-           3. WORK EXPERIENCE
+           3. WORK EXPERIENCE (الخبرات المهنية)
            ------------------------------------------------------- -->
       <section class="sct-block">
         <div class="sct-title-wrap">
-          <h2 class="sct-title">Professional Experience</h2>
-          <span class="sct-subtitle">Career Progression</span>
+          <h2 class="sct-title">الخبرات المهنية</h2>
+          <span class="sct-subtitle">Work Experience</span>
         </div>
 
         <div class="timeline-stream">
           <!-- Job 1 -->
           <article class="timeline-entry">
             <div class="timeline-entry-header">
-              <h3 class="entry-role">Head Waiter</h3>
-              <span class="entry-date">Sep 2024 – Present</span>
+              <h3 class="entry-role">مشرف فني واستشاري مستقل (Technical Supervisor & Freelancer)</h3>
+              <span class="entry-date">2011 – الحاضر (Present)</span>
             </div>
-            <div class="entry-company">Abhar Catering Company | Ardiya, Kuwait</div>
+            <div class="entry-company">مركز مصطفى ضاهر للمضخات (Mustafa Daher Pumps Center) | صيدا، لبنان</div>
             <ul class="entry-bullets">
-              <li class="entry-bullet">Supervise front-of-house service crews and dining operations within high-volume commercial catering and restaurant settings in Kuwait.</li>
-              <li class="entry-bullet">Enforce rigorous compliance with ISO 22000 (Food Safety Management) and the Kuwait Quality Mark (KQM) across food handling, temperature logging, and presentation stages.</li>
-              <li class="entry-bullet">Manage daily shift scheduling, attendance recording, and overtime control utilizing the BioTime biometric management platform.</li>
-              <li class="entry-bullet">Coordinate between culinary chefs, storekeepers, and service staff to ensure prompt order preparation, seamless service flow, and minimal wastage.</li>
-              <li class="entry-bullet">Monitor customer feedback continuously, resolve floor challenges immediately, and maintain high standards of dining sanitation and customer hospitality.</li>
+              <li class="entry-bullet">الإشراف الميداني وإدارة الفرق الفنية لتنفيذ مشاريع ضخ المياه والآبار الارتوازية بالاعتماد على منظومات الطاقة الشمسية (Solar Pumping Systems).</li>
+              <li class="entry-bullet">تصميم، تجميع، وصيانة لوحات التحكم الكهربائية ومغيرات السرعة (VFDs) الخاصة بمضخات الأعماق والري الزراعي والصناعي.</li>
+              <li class="entry-bullet">تنفيذ عمليات الفحص الشامل وإعادة لف وصيانة المحركات الغاطسة والمحركات الكهربائية الكبيرة بدقة عالية.</li>
+              <li class="entry-bullet">تشخيص الأعطال الطارئة وحل المشكلات الفنية المعقدة في المنظومات الكهربائية ميدانياً لتقليل فترات التوقف.</li>
+              <li class="entry-bullet">إدارة وتنسيق التوريدات والتواصل المباشر مع العملاء والموردين لضمان تسليم المشاريع وفق أعلى معايير الجودة.</li>
             </ul>
           </article>
 
           <!-- Job 2 -->
           <article class="timeline-entry">
             <div class="timeline-entry-header">
-              <h3 class="entry-role">Captain Waiter</h3>
-              <span class="entry-date">Jul 2022 – Jul 2024</span>
+              <h3 class="entry-role">فني لف مولدات ومحركات كهربائية (Generators & Motors Winding Technician)</h3>
+              <span class="entry-date">2009 – 2011</span>
             </div>
-            <div class="entry-company">Babylon Rotana Hotel (5-Star Luxury) | Baghdad, Iraq</div>
+            <div class="entry-company">المركز الفني للكهرباء (Technical Electrical Center) | لبنان</div>
             <ul class="entry-bullets">
-              <li class="entry-bullet">Supervised designated dining sections and banquet events within a premier 5-star international hotel environment, maintaining Rotana's world-class service standards.</li>
-              <li class="entry-bullet">Operated Micros POS and Opera PMS systems for guest orders, billing, room charges, and table status management with 100% accuracy.</li>
-              <li class="entry-bullet">Led daily pre-service briefings to align staff on daily specials, VIP guest preferences, dietary requirements, and upselling targets.</li>
-              <li class="entry-bullet">Delivered personalized hospitality for high-profile diplomats, corporate executives, and VIP guests, handling special requests with discretion and professionalism.</li>
-              <li class="entry-bullet">Coached and trained junior waitstaff on fine dining etiquette, wine presentation, silverware placement, and sequence of service.</li>
+              <li class="entry-bullet">تنفيذ عمليات إعادة لف وإصلاح المولدات الكهربائية (Alternators) ومحركات التيار المتناوب (AC Motors) بمختلف الأحجام والقدرات.</li>
+              <li class="entry-bullet">فحص عزل الملفات واختبار توازن العضو الدوار لضمان الأداء التشغيلي الأمثل والسلامة الفنية.</li>
+              <li class="entry-bullet">إجراء الصيانة الوقائية والطارئة للأنظمة الكهروميكانيكية في مختلف بيئات العمل.</li>
             </ul>
           </article>
 
           <!-- Job 3 -->
           <article class="timeline-entry">
             <div class="timeline-entry-header">
-              <h3 class="entry-role">Head Waiter</h3>
-              <span class="entry-date">May 2021 – May 2022</span>
+              <h3 class="entry-role">مؤسس ومدير ورشة فنية (Workshop Owner & Lead Technician)</h3>
+              <span class="entry-date">2008 – 2009</span>
             </div>
-            <div class="entry-company">Le Mandarin Restaurant | Brazzaville, Republic of the Congo</div>
+            <div class="entry-company">عمل حر وإدارة ورشة خاصة (Self-Employed) | لبنان</div>
             <ul class="entry-bullets">
-              <li class="entry-bullet">Directed dining room floor activities and managed a multicultural service team at a reputable upscale restaurant in Brazzaville.</li>
-              <li class="entry-bullet">Facilitated multilingual guest communication in French and English, ensuring international patrons received exceptional dining care.</li>
-              <li class="entry-bullet">Oversaw bar and dining room mise-en-place, cocktail/beverage service standards, and inventory levels for service supplies.</li>
-              <li class="entry-bullet">Maintained strict health, safety, and hygiene standards across all dining stations and service pantries.</li>
+              <li class="entry-bullet">تأسيس وإدارة ورشة متخصصة في لف المحركات وتجميع لوحات التحكم والتوزيع الكهربائية.</li>
+              <li class="entry-bullet">تصنيع وتطوير أجهزة تحويل الطاقة والشواحن والمحولات (Inverters, Chargers, & Adapters) بجودة عالية.</li>
+              <li class="entry-bullet">تقديم حلول طاقة مخصصة للأفراد والمؤسسات وتقديم خدمات ما بعد البيع والصيانة الفنية.</li>
             </ul>
           </article>
 
           <!-- Job 4 -->
           <article class="timeline-entry">
             <div class="timeline-entry-header">
-              <h3 class="entry-role">Waiter</h3>
-              <span class="entry-date">Apr 2019 – Apr 2021</span>
+              <h3 class="entry-role">فني أنظمة كهربائية وإلكترونيات قدرة (Electrical & Power Electronics Technician)</h3>
+              <span class="entry-date">2003 – 2008</span>
             </div>
-            <div class="entry-company">Diwan Restaurant | Sarafand, Lebanon</div>
+            <div class="entry-company">Dia Engineering | لبنان</div>
             <ul class="entry-bullets">
-              <li class="entry-bullet">Provided attentive, high-quality food and beverage service in a bustling Mediterranean and Lebanese cuisine restaurant.</li>
-              <li class="entry-bullet">Mastered sequence of service protocols, menu knowledge, ingredient descriptions, and pairing recommendations.</li>
-              <li class="entry-bullet">Processed orders accurately on the POS terminal and coordinated with the kitchen brigade to ensure timely food delivery.</li>
-              <li class="entry-bullet">Maintained clean and organized dining stations, prepared side stations, and assisted in event banquet setups.</li>
-            </ul>
-          </article>
-
-          <!-- Job 5 -->
-          <article class="timeline-entry">
-            <div class="timeline-entry-header">
-              <h3 class="entry-role">Waiter (Seasonal)</h3>
-              <span class="entry-date">May 2018 – Sep 2018</span>
-            </div>
-            <div class="entry-company">Jiyeh Marina Resort | Jiyeh, Lebanon</div>
-            <ul class="entry-bullets">
-              <li class="entry-bullet">Delivered high-energy food and beverage hospitality to resort guests and VIP beach club visitors during peak summer seasons.</li>
-              <li class="entry-bullet">Demonstrated rapid multi-tasking and speed of service in poolside and seaside dining areas while preserving warm guest rapport.</li>
-            </ul>
-          </article>
-
-          <!-- Job 6 -->
-          <article class="timeline-entry">
-            <div class="timeline-entry-header">
-              <h3 class="entry-role">Waiter (Seasonal)</h3>
-              <span class="entry-date">May 2017 – Sep 2017</span>
-            </div>
-            <div class="entry-company">Nasmet Hawa Restaurant | Sarafand, Lebanon</div>
-            <ul class="entry-bullets">
-              <li class="entry-bullet">Welcomed guests, presented menus, took accurate orders, and served meals following established hygiene and hospitality standards.</li>
-              <li class="entry-bullet">Developed strong fundamentals in teamwork, table reset turnaround, and customer care during busy evening shifts.</li>
+              <li class="entry-bullet">تصنيع وتجميع أجهزة الإنفرتر (Inverters)، شواحن البطاريات (Battery Chargers)، ومحولات القدرة (Adapters).</li>
+              <li class="entry-bullet">تجميع وتوصيل لوحات التحكم والتشغيل الكهربائي ودارات التحويل (Control Panels & ATS).</li>
+              <li class="entry-bullet">تنفيذ أعمال لف المحركات الكهربائية وفحص الدارات والمكونات الإلكترونية للتأكد من مطابقتها للمواصفات.</li>
             </ul>
           </article>
         </div>
       </section>
 
+      
+
       <!-- -------------------------------------------------------
-           4. TOOLBOX & SYSTEMS
+           5. TOOLBOX & EQUIPMENT (ترسانة المعدات والتقنيات)
            ------------------------------------------------------- -->
       <section class="sct-block">
         <div class="sct-title-wrap">
-          <h2 class="sct-title">Systems & Technical Toolbox</h2>
-          <span class="sct-subtitle">Software, Hardware & Tools</span>
+          <h2 class="sct-title">ترسانة المعدات والتقنيات</h2>
+          <span class="sct-subtitle">Technical Toolbox</span>
         </div>
 
         <div class="toolbox-flow">
           <div class="tool-pill">
+            <span class="tool-pill-icon">⚡</span>
+            <span class="tool-pill-name">Solar VFDs</span>
+            <span class="tool-pill-desc">مغيرات السرعة الشمسية</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">🎛️</span>
+            <span class="tool-pill-name">ATS & Control</span>
+            <span class="tool-pill-desc">لوحات التحويل والتحكم</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">⚙️</span>
+            <span class="tool-pill-name">Motors Winding</span>
+            <span class="tool-pill-desc">معدات لف المحركات</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">🔋</span>
+            <span class="tool-pill-name">Inverters & Chargers</span>
+            <span class="tool-pill-desc">محولات القدرة والشواحن</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">💧</span>
+            <span class="tool-pill-name">Deep Well Pumps</span>
+            <span class="tool-pill-desc">مضخات الآبار الغاطسة</span>
+          </div>
+          <div class="tool-pill">
+            <span class="tool-pill-icon">📟</span>
+            <span class="tool-pill-name">Megger & Meters</span>
+            <span class="tool-pill-desc">أجهزة الفحص والعزل</span>
+          </div>
+          <div class="tool-pill">
             <span class="tool-pill-icon">💻</span>
-            <span class="tool-pill-name">Micros POS</span>
-            <span class="tool-pill-desc">Restaurant POS & Billing</span>
+            <span class="tool-pill-name">Hardware & PC</span>
+            <span class="tool-pill-desc">صيانة الحواسيب والعتاد</span>
           </div>
           <div class="tool-pill">
-            <span class="tool-pill-icon">🏨</span>
-            <span class="tool-pill-name">Opera PMS</span>
-            <span class="tool-pill-desc">Hotel & Guest Management</span>
-          </div>
-          <div class="tool-pill">
-            <span class="tool-pill-icon">⏱️</span>
-            <span class="tool-pill-name">BioTime System</span>
-            <span class="tool-pill-desc">Biometric Attendance & HR</span>
-          </div>
-          <div class="tool-pill">
-            <span class="tool-pill-icon">📊</span>
-            <span class="tool-pill-name">Microsoft Office</span>
-            <span class="tool-pill-desc">Excel, Word, PowerPoint</span>
-          </div>
-          <div class="tool-pill">
-            <span class="tool-pill-icon">🩹</span>
-            <span class="tool-pill-name">First Aid & CPR</span>
-            <span class="tool-pill-desc">Emergency Response</span>
-          </div>
-          <div class="tool-pill">
-            <span class="tool-pill-icon">🖨️</span>
-            <span class="tool-pill-name">3D Printer & Laser Jet</span>
-            <span class="tool-pill-desc">Tech & Hardware Operations</span>
-          </div>
-          <div class="tool-pill">
-            <span class="tool-pill-icon">🍸</span>
-            <span class="tool-pill-name">Bartending & Bar Tools</span>
-            <span class="tool-pill-desc">Mixology & Beverage Equipment</span>
-          </div>
-          <div class="tool-pill">
-            <span class="tool-pill-icon">📋</span>
-            <span class="tool-pill-name">ISO & Quality Frameworks</span>
-            <span class="tool-pill-desc">ISO 22000, 9001, 45001 & KQM</span>
+            <span class="tool-pill-icon">📐</span>
+            <span class="tool-pill-name">Wiring Schematics</span>
+            <span class="tool-pill-desc">مخططات الدارات الصناعية</span>
           </div>
         </div>
       </section>
 
       <!-- -------------------------------------------------------
-           5. PROFESSIONAL COURSES & CERTIFICATIONS
+           5. EDUCATION & CERTIFICATIONS (التعليم والشهادات)
            ------------------------------------------------------- -->
       <section class="sct-block">
         <div class="sct-title-wrap">
-          <h2 class="sct-title">Courses & Certifications</h2>
-          <span class="sct-subtitle">Professional Development</span>
-        </div>
-
-        <div class="certs-grid">
-          <div class="cert-card">
-            <span class="cert-icon">🍽️</span>
-            <div>
-              <div class="cert-name">Sequence of Service & Fine Dining</div>
-              <div class="cert-desc">Mastery of formal table service, pacing, guest relations, and international hospitality protocols.</div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <span class="cert-icon">🍹</span>
-            <div>
-              <div class="cert-name">Professional Bartending & Beverage Service</div>
-              <div class="cert-desc">Mixology techniques, beverage costing, inventory control, and bar station management.</div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <span class="cert-icon">🛡️</span>
-            <div>
-              <div class="cert-name">ISO 22000: Food Safety Management</div>
-              <div class="cert-desc">Hazard Analysis Critical Control Point (HACCP), food storage hygiene, and cross-contamination prevention.</div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <span class="cert-icon">🏅</span>
-            <div>
-              <div class="cert-name">ISO 9001: Quality Management Systems</div>
-              <div class="cert-desc">Service quality auditing, operational standardization, and continuous process improvement.</div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <span class="cert-icon">👷</span>
-            <div>
-              <div class="cert-name">ISO 45001: Occupational Health & Safety</div>
-              <div class="cert-desc">Workplace risk assessment, emergency protocols, and front/back-of-house safety compliance.</div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <span class="cert-icon">🇰🇼</span>
-            <div>
-              <div class="cert-name">Kuwait Quality Mark (KQM)</div>
-              <div class="cert-desc">Compliance with State of Kuwait standards for food safety, catering excellence, and quality mark standards.</div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <span class="cert-icon">📊</span>
-            <div>
-              <div class="cert-name">Microsoft Office Professional Skills</div>
-              <div class="cert-desc">Advanced spreadsheet data analysis, operational reporting, documentation, and executive presentations.</div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <span class="cert-icon">🩺</span>
-            <div>
-              <div class="cert-name">First Aid & Emergency Care</div>
-              <div class="cert-desc">Certified workplace first aid response, basic life support (BLS), and incident management.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- -------------------------------------------------------
-           6. EDUCATION
-           ------------------------------------------------------- -->
-      <section class="sct-block">
-        <div class="sct-title-wrap">
-          <h2 class="sct-title">Education</h2>
-          <span class="sct-subtitle">Academic Credentials</span>
+          <h2 class="sct-title">التعليم والشهادات</h2>
+          <span class="sct-subtitle">Education & Certifications</span>
         </div>
 
         <div class="edu-flow">
           <div class="edu-block">
-            <h3 class="edu-degree">BT in Information Technology (IT)</h3>
-            <span class="sct-subtitle" style="margin-bottom: 4px;">Baccalauréat Technique</span>
-            <p class="edu-detail">Comprehensive technical foundation in computer networks, hardware maintenance, software systems, and data processing.</p>
+            <h3 class="edu-degree">دبلوم فني – معهد فني</h3>
+            <span class="sct-subtitle" style="margin-bottom: 4px;">Technical Institute Diploma</span>
+            <p class="edu-detail">تأهيل تقني وأكاديمي في أسس الهندسة الكهربائية، الدارات الصناعية، والتحكم الكهروميكانيكي.</p>
           </div>
 
           <div class="edu-block">
-            <h3 class="edu-degree">Brevet Official Certificate</h3>
-            <span class="sct-subtitle" style="margin-bottom: 4px;">Official Lebanese Certificate</span>
-            <p class="edu-detail">Secondary educational foundation in sciences, mathematics, and foreign languages.</p>
+            <h3 class="edu-degree">شهادة في البرمجة وصيانة الحواسيب</h3>
+            <span class="edu-grade">التقدير: جيد جداً (Very Good)</span>
+            <p class="edu-detail">تشخيص وصيانة العتاد الصلب (Hardware)، تثبيت الأنظمة، وأساسيات البرمجة للتحكم وتطوير الحلول التقنية.</p>
           </div>
         </div>
       </section>
 
       <!-- -------------------------------------------------------
-           7. SKILLS & CAPABILITIES MATRIX
+           6. SKILLS MATRIX (مصفوفة المهارات)
            ------------------------------------------------------- -->
       <section class="sct-block">
         <div class="sct-title-wrap">
-          <h2 class="sct-title">Skills & Capabilities Matrix</h2>
-          <span class="sct-subtitle">Comprehensive Skillset</span>
+          <h2 class="sct-title">المهارات والقدرات</h2>
+          <span class="sct-subtitle">Capabilities Matrix</span>
         </div>
 
         <div class="skills-matrix-flow">
           <div class="skill-matrix-item">
-            <div class="skill-cat-title">🍽️ Restaurant Operations:</div>
-            <div class="skill-cat-body">Sequence of service, floor management, banquet logistics, VIP table hosting, menu upselling, and guest dispute resolution.</div>
+            <div class="skill-cat-title">⚙️ الأنظمة الكهروميكانيكية:</div>
+            <div class="skill-cat-body">لف وصيانة المحركات الكهربائية (1-Phase / 3-Phase)، المولدات، والمحولات بمختلف القدرات.</div>
           </div>
 
           <div class="skill-matrix-item">
-            <div class="skill-cat-title">🛡️ Quality & Food Safety:</div>
-            <div class="skill-cat-body">ISO 22000 (FSMS), ISO 9001 (QMS), ISO 45001 (OH&S), Kuwait Quality Mark (KQM), HACCP adherence, and sanitation audits.</div>
+            <div class="skill-cat-title">🎛️ التحكم واللوحات:</div>
+            <div class="skill-cat-body">تصميم وتجميع لوحات التوزيع والتحكم (Control Panels)، مغيرات السرعة (VFDs)، ودارات التحويل (ATS).</div>
           </div>
 
           <div class="skill-matrix-item">
-            <div class="skill-cat-title">💻 Systems & Software:</div>
-            <div class="skill-cat-body">Micros POS, Opera PMS, BioTime biometric timekeeping, Microsoft Excel, Word, PowerPoint, and Outlook.</div>
+            <div class="skill-cat-title">☀️ الطاقة المتجددة والقدرة:</div>
+            <div class="skill-cat-body">تصميم وتركيب منظومات الطاقة الشمسية للآبار الارتوازية، تصنيع وصيانة الـ Inverters والشواحن.</div>
           </div>
 
           <div class="skill-matrix-item">
-            <div class="skill-cat-title">⚙️ Technical & Safety:</div>
-            <div class="skill-cat-body">Certified First Aid, 3D printing operation & troubleshooting, laser jet systems, and IT hardware maintenance.</div>
+            <div class="skill-cat-title">💻 المهارات التقنية والرقمية:</div>
+            <div class="skill-cat-body">صيانة وتجميع الحواسيب، التعامل مع برمجيات التحكم وفحص الأعطال الرقمية واستخدام أجهزة القياس بدقة.</div>
           </div>
 
           <div class="skill-matrix-item">
-            <div class="skill-cat-title">👥 Leadership & Soft Skills:</div>
-            <div class="skill-cat-body">Staff mentoring, cross-functional communication, conflict management, high-pressure resilience, and multicultural team leadership.</div>
+            <div class="skill-cat-title">🌐 الإدارة واللغات:</div>
+            <div class="skill-cat-body">إدارة الفرق الميدانية، حل المشكلات المعقدة، التواصل الفني | اللغة العربية (الأم)، الإنجليزية (مستوى مهني وتقني).</div>
           </div>
         </div>
       </section>
 
       <!-- -------------------------------------------------------
-           8. LANGUAGES
+           4. PORTFOLIO SHOWCASE BANNER (معرض الأعمال والتوثيق الميداني)
            ------------------------------------------------------- -->
-      <section class="sct-block">
+      <section class="sct-block" id="portfolio-section">
         <div class="sct-title-wrap">
-          <h2 class="sct-title">Languages</h2>
-          <span class="sct-subtitle">Communication & Fluency</span>
+          <h2 class="sct-title">معرض الأعمال والتوثيق الميداني</h2>
+          <span class="sct-subtitle">Field Portfolio & Media Showcase</span>
         </div>
 
-        <div class="lang-row">
-          <div class="lang-card">
-            <span class="lang-name">Arabic</span>
-            <span class="lang-level">Native Speaker (Spoken & Written)</span>
+        <div style="background: linear-gradient(135deg, rgba(0, 210, 255, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%); border: 1px solid var(--border-accent); border-radius: 14px; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <span style="font-size: 1.3rem;">⚡</span>
+              <h3 style="font-size: 1.12rem; font-weight: 800; color: #fff;">معرض الصور والفيديوهات الحية (66 عنصر موثق)</h3>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-2); line-height: 1.65; margin: 0;">
+              توثيق مرئي وميداني شامل لـ 49 صورة و 17 مقطع فيديو لمشاريع محطات الطاقة الشمسية، لف وصيانة المحركات والمولدات، تصميم وتجميع لوحات التحكم ودارات التحويل ATS.
+            </p>
           </div>
-          <div class="lang-card">
-            <span class="lang-name">English</span>
-            <span class="lang-level">Fluent (Professional Working Proficiency)</span>
-          </div>
-          <div class="lang-card">
-            <span class="lang-name">French</span>
-            <span class="lang-level">Basic / Working Knowledge (Hospitality Service)</span>
-          </div>
+          <a href="portfolio.html" class="btn-minimal-primary" style="padding: 12px 26px; font-size: 0.92rem; text-decoration: none; white-space: nowrap;">
+            <span>فتح معرض الأعمال الكامل ←</span>
+          </a>
         </div>
       </section>
-
+      
       <!-- -------------------------------------------------------
            FOOTER
            ------------------------------------------------------- -->
       <footer class="page-footer">
-        <div>Hassan Ali Saade &copy; <span id="current-year"></span> | All Rights Reserved</div>
+        <div>صالح حسين جحا &copy; <span id="current-year"></span> | جميع الحقوق محفوظة</div>
         <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-top">
-          ↑ Back to Top
+          ↑ العودة للأعلى
         </button>
       </footer>
 
